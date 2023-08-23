@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 This is the home page for BUA 345 - Visual Analytics
 
-Instructor: Roy Thomas
+Instructor: Roy Thoma
 Meeting times: Mon/Wed 3:45pm to 5:05pm Room 301
 Office Hours: 
 Mon/Wed: 12:30pm to 2:00pm
