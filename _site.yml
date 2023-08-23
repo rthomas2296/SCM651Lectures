@@ -1,0 +1,49 @@
+name: "BUA400"
+title: "BUA 400"
+description: |
+  BUA 400 - Visual Analytics
+output_dir: "docs"
+theme: "theme.css"
+repository_url: https://github.com/rthomas2296/BUA400
+include: [".nojekyll"]
+navbar:
+  source_url: false
+  left:
+    - text: "Schedule"
+      href: schedule.html
+
+  right:
+    - text: "Slides"
+      menu:
+        - text: "Lesson 1: Visual Analytics Introduction"
+          href: slides/introduction.html
+        - text: "Lesson 2: Data Wrangling"
+          href: slides/dataWrangling.html
+        - text: "Lesson 3: Data Exploration"
+          href: slides/dataExploration.html
+        - text: "Lesson 4: Visual Design Principles"
+          href: slides/visualDesignPrinciples.html
+        - text: "Lesson 5: Introduction to ggplot"
+          href: slides/introductionToGgplot.html
+        - text: "Lesson 6: Basic Plot Types"
+          href: slides/basicPlotTypes.html
+        - text: "Lesson 7: Basic Plot Types 2"
+          href: slides/basicPlotTypes2.html
+        - text: "Lesson 8: More Plot Types"
+          href: slides/morePlotTypes.html
+        - text: "Lesson 9: More Plot Types 2"
+          href: slides/morePlotTypes2.html
+        - text: "Lesson 10: Advanced Designs"
+          href: slides/advancedDesigns.html
+        - text: "Lesson 11: Interactive Visualizations"
+          href: slides/interactiveVisualizations.html
+
+
+    - text: "Worksheets"
+      menu:
+        - text: "Class 1: Intro to R Markdown"
+          href: worksheets/intro-rmarkdown.Rmd
+        - text: "Class 1: Intro to R Markdown (Solutions)"
+          href: worksheets/intro-rmarkdown-solutions.Rmd
+
+output: distill::distill_article

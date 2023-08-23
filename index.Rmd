@@ -1,0 +1,57 @@
+---
+title: "BUA 400"
+description: Visual Analytics
+site: distill::distill_website
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+# Learn more about creating websites with Distill at:
+# https://rstudio.github.io/distill/website.html
+
+# Learn more about publishing to GitHub Pages at:
+# https://rstudio.github.io/distill/publish_website.html#github-pages
+
+```
+
+This is the home page for BUA 345 - Visual Analytics
+
+Instructor: Roy Thomas
+Meeting times: Mon/Wed 3:45pm to 5:05pm Room 301
+Office Hours: 
+Mon/Wed: 12:30pm to 2:00pm
+Tue/Thu: 1:00pm to 3:30pm
+
+To run any of the materials locally on your own machine, you will need the following:
+
+- A recent version of R, [download from here.](https://cloud.r-project.org/)
+- A recent version of RStudio, [download from here.](https://rstudio.com/products/rstudio/download/#download)
+- The following R packages:    
+  broom, cluster, colorspace, cowplot, distill, gapminder, GGally, gganimate,  ggiraph, ggdendro, ggdist, ggforce, ggplot2movies, ggrepel, ggridges, ggthemes, gifski, glue, knitr, learnr, naniar, margins, MASS, Matrix, nycflights13, palmerpenguins, patchwork, rgdal, rmarkdown, rnaturalearth, rnaturalearthhires, sf, shinyjs, tidyverse, transformr, umap, xaringan
+
+You can install all required R packages at once by running the following code in the R command line:
+
+```{r eval = FALSE, echo = TRUE}
+# first run this command:
+install.packages(
+  c(
+    "broom", "cluster", "colorspace", "cowplot", "distill", "gapminder", 
+    "GGally", "gganimate", "ggiraph", "ggdendro", "ggdist", "ggforce",
+    "ggplot2movies", "ggrepel", "ggridges", "ggthemes", "gifski", "glue",
+    "knitr", "learnr", "naniar", "margins", "MASS", "Matrix",
+    "nycflights13", "palmerpenguins", "patchwork", "rgdal", "rmarkdown",
+    "rnaturalearth", "sf", "shinyjs", "tidyverse", "transformr", "umap",
+    "xaringan"
+  )
+)
+
+# then run this command:
+install.packages(
+  "rnaturalearthhires", repos = "https://packages.ropensci.org", type = "source"
+)
+```
+
+## Reuse {.appendix}
+
+Text and figures are licensed under Creative Commons Attribution [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Any computer code (R, HTML, CSS, etc.) in slides and worksheets, including in slide and worksheet sources, is also licensed under [MIT](LICENSE.html). Note that figures in slides may be pulled in from external sources and may be licensed under different terms. For such images, image credits are available in the slide notes, accessible via pressing the letter 'p'.
