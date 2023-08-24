@@ -1,6 +1,6 @@
 ---
 title: "BUA 400 Visual Analytics"
-author: "Roy Thomas"
+author: "Roy Thom"
 date: "last updated: `r Sys.Date()`"
 output:
   xaringan::moon_reader:
