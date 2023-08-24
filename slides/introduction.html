@@ -6,7 +6,7 @@
     <meta name="author" content="Roy Thomas" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
-    <link rel="stylesheet" href="Wilke-slides-them.css" type="text/css" />
+    <link rel="stylesheet" href="Wilke-slides-theme.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -19,7 +19,7 @@ class: center, middle, title-slide
 ### Roy Thomas
 ]
 .date[
-### last updated: 2023-08-23
+### last updated: 2023-08-24
 ]
 
 ---
@@ -27,90 +27,99 @@ class: center, middle, title-slide
 
 
 
-## Why Data Visualization?
+## Agenda
 
 --
 
+- ####Introduction
+- ####Typical Lecture
+- ####Syllabus
+- ####Attendance
+- ####Analytics in the News
+- ####Intro to Visual Analytics
+- ####R Markdown
+- ####OYOTs (On Your Own Tasks)
+
+
+---
+
+
+## Introduction
+
+--
+
+### What is Visual Analytics
+
+--
 &lt;br&gt;
 
-.center[
-&lt;img src = "introduction_files/Data_science_venn.svg", width = 60%&gt;&lt;/img&gt;
-]
-
----
-
-
-## Why Data Visualization?
-
-&lt;br&gt;
 
 .center[
-&lt;img src = "introduction_files/Data_visualization_venn.svg", width = 60%&gt;&lt;/img&gt;
+&lt;img src = "introduction_files/Visual-analytics-between-data-and-human.png", width = 55%, height = 55%&gt;&lt;/img&gt;
 ]
-
-
----
-
-## Why R?
-
---
-
-&lt;img src = "introduction_files/Rlogo.svg", width = 25%, style = "position:absolute; top: 18%; left: 15%;"&gt;&lt;/img&gt;
-
-&lt;img src = "introduction_files/Data_science_venn.svg", width = 40%, style = "position:absolute; top: 57%; left: 8%;"&gt;&lt;/img&gt;
-
-???
-
-The R logo [is distributed](https://www.r-project.org/logo/) under the terms of the Creative Commons Attribution-ShareAlike 4.0 International license ([CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)).
-
-RStudio hex stickers [are distributed](https://github.com/rstudio/hex-stickers) under [CC0.](https://github.com/rstudio/hex-stickers/blob/master/LICENSE.md)
-
---
-
-&lt;img src = "introduction_files/package-hexlogos.svg", width = 35%, style = "position:absolute; top: 5%; left: 55%;"&gt;&lt;/img&gt;
----
-
-## Why me?
-
---
-
-&lt;img src = "https://clauswilke.com/dataviz/cover.png", width = 30%, style = "position:absolute; top: 18%; left: 13%; box-shadow: 3px 5px 3px 1px #00000080;"&gt;&lt;/img&gt;
-
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
-
-.pull-left.small-font[
 
 .center[
-https://clauswilke.com/dataviz
+https://www.researchgate.net/figure/Visual-analytics-as-the-interplay-between-data-analysis-visualization-and-human_fig2_333884128
 ]
 
-]
+
+---
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+Table: A cars dataset
+
+|                  |  mpg| cyl|  disp|  hp| drat|    wt|  qsec| vs| am| gear| carb|
+|:-----------------|----:|---:|-----:|---:|----:|-----:|-----:|--:|--:|----:|----:|
+|Mazda RX4         | 21.0|   6| 160.0| 110| 3.90| 2.620| 16.46|  0|  1|    4|    4|
+|Mazda RX4 Wag     | 21.0|   6| 160.0| 110| 3.90| 2.875| 17.02|  0|  1|    4|    4|
+|Datsun 710        | 22.8|   4| 108.0|  93| 3.85| 2.320| 18.61|  1|  1|    4|    1|
+|Hornet 4 Drive    | 21.4|   6| 258.0| 110| 3.08| 3.215| 19.44|  1|  0|    3|    1|
+|Hornet Sportabout | 18.7|   8| 360.0| 175| 3.15| 3.440| 17.02|  0|  0|    3|    2|
+|Valiant           | 18.1|   6| 225.0| 105| 2.76| 3.460| 20.22|  1|  0|    3|    1|
+|Duster 360        | 14.3|   8| 360.0| 245| 3.21| 3.570| 15.84|  0|  0|    3|    4|
+|Merc 240D         | 24.4|   4| 146.7|  62| 3.69| 3.190| 20.00|  1|  0|    4|    2|
+|Merc 230          | 22.8|   4| 140.8|  95| 3.92| 3.150| 22.90|  1|  0|    4|    2|
+|Merc 280          | 19.2|   6| 167.6| 123| 3.92| 3.440| 18.30|  1|  0|    4|    4|
+---
+
+
+&lt;img src = "https://clauswilke.com/dataviz/coordinate_systems_axes_files/figure-html/worldmap-four-projections-1.png", width = 30%, style = "position:absolute; top: 12%; left: 25%; box-shadow: 3px 5px 3px 1px #00000080;"&gt;&lt;/img&gt;
+
+--
+
+&lt;img src = "https://clauswilke.com/dataviz/nested_proportions_files/figure-html/US-states-treemap-1.png",  width = 30%, style = "position:absolute; top: 22%; left: 35%; box-shadow: 3px 5px 3px 1px #00000080;"&gt;&lt;/img&gt;
 
 
 --
 
-&lt;img src = "https://clauswilke.com/dataviz/coordinate_systems_axes_files/figure-html/worldmap-four-projections-1.png", width = 30%, style = "position:absolute; top: 12%; left: 45%; box-shadow: 3px 5px 3px 1px #00000080;"&gt;&lt;/img&gt;
+&lt;img src = "https://clauswilke.com/dataviz/geospatial_data_files/figure-html/unemployment-geofacet-1.png",  width = 30%, style = "position:absolute; top: 32%; left: 45%; box-shadow: 3px 5px 3px 1px #00000080;"&gt;&lt;/img&gt;
 
 --
 
-&lt;img src = "https://clauswilke.com/dataviz/nested_proportions_files/figure-html/US-states-treemap-1.png",  width = 30%, style = "position:absolute; top: 22%; left: 55%; box-shadow: 3px 5px 3px 1px #00000080;"&gt;&lt;/img&gt;
-
-
---
-
-&lt;img src = "https://clauswilke.com/dataviz/geospatial_data_files/figure-html/unemployment-geofacet-1.png",  width = 30%, style = "position:absolute; top: 32%; left: 65%; box-shadow: 3px 5px 3px 1px #00000080;"&gt;&lt;/img&gt;
+&lt;img src = "https://clauswilke.com/dataviz/redundant_coding_files/figure-html/temp-ridgeline-colorbar-1.png",  width = 30%, style = "position:absolute; top: 42%; left: 30%; box-shadow: 3px 5px 3px 1px #00000080;"&gt;&lt;/img&gt;
 
 --
 
-&lt;img src = "https://clauswilke.com/dataviz/redundant_coding_files/figure-html/temp-ridgeline-colorbar-1.png",  width = 30%, style = "position:absolute; top: 42%; left: 50%; box-shadow: 3px 5px 3px 1px #00000080;"&gt;&lt;/img&gt;
+&lt;img src = "https://clauswilke.com/dataviz/multi-panel_figures_files/figure-html/athletes-composite-good-1.png",  width = 30%, style = "position:absolute; top: 52%; left: 40%; box-shadow: 3px 5px 3px 1px #00000080;"&gt;&lt;/img&gt;
 
---
+---
+## A Typical Lecture
 
-&lt;img src = "https://clauswilke.com/dataviz/multi-panel_figures_files/figure-html/athletes-composite-good-1.png",  width = 30%, style = "position:absolute; top: 52%; left: 60%; box-shadow: 3px 5px 3px 1px #00000080;"&gt;&lt;/img&gt;
+- ####Agenda
+- ####Attendance
+- ####Review of past OYOTs
+- ####Analytics in the News
+- ####Main Lecture with hands on work
+- ####Wrap up with next OYOTs
+
+---
+## Syllabus
+
+#### [Visual Analytics Syllabus](introduction_files/Fall2023_RT_BUA400_CourseSyllabus.pdf)
 
 ---
 
-## Why me?
+## What is ggplot?
 
 .center[
 &lt;img src = "introduction_files/ggplot2-website-title.png", width = 60%&gt;&lt;/img&gt;
@@ -222,7 +231,7 @@ rnorm(5) # create 5 normal variates
 ```
 
 ```
-[1] -1.4890718  1.2181709 -1.1446632 -0.1213371  0.8547368
+[1] -0.6786129 -0.9501287  0.4095374 -0.6177245 -0.3090702
 ```
 ]
 
