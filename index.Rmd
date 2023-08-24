@@ -1,5 +1,5 @@
 ---
-title: "BUA 400"
+title: "BUA 400 by Roy Thoma"
 description: Visual Analytics
 site: distill::distill_website
 ---
