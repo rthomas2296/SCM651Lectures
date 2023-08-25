@@ -104,7 +104,7 @@ knitr::kable(
 
 ## Attendance
 
-#### [Attendance Sheet]()
+#### [Attendance Sheet](a link to google sheet)
 
 ---
 
