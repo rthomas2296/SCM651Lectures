@@ -108,6 +108,15 @@ knitr::kable(
 
 ---
 
+## Course Breakdown
+
+- ####Some Theory on Visualizations
+- ####R and ggplot
+- ####Tableau
+- ####Microsoft Power BI
+
+---
+
 ## What is ggplot?
 
 .center[
@@ -123,13 +132,48 @@ knitr::kable(
 [//]: # "segment ends here"
 
 ---
-class: middle
+class: middle, center
 
-## Class website/syllabus: https://wilkelab.org/SDS375
+## Analytics in the News
 
 ---
 
-## The first core concept: Markdown
+## Do you have?
+
+- ####<img src = "introduction_files/R_logo.png", width = 5%></img>
+- ####<img src = "introduction_files/RStudio-Logo.svg", width = 10%></img>
+
+
+- ####Download R from here: [https://www.r-project.org/](https://www.r-project.org/)
+- ####Download RStudio from here: [https://posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/)
+
+---
+
+## Steps to test...
+
+Open a new empty Rmd file  
+Create a "code chunk" by typing in Ctrl+Alt+i   or Cmd+Opt+i  
+Inside the code chunk, type in str(mtcars)  
+Execute the code chunk with Ctrl+Shift+Enter   or Cmd+Shift+Enter
+
+```{R include=TRUE, echo=FALSE}
+str(mtcars)
+```
+
+---
+####Plot of mpg against disp
+```{R include=TRUE, echo=FALSE}
+plot(mtcars$disp,mtcars$mpg)
+```
+
+---
+class: middle, center
+
+## Markdown
+
+---
+
+## Markdown
 
 --
 
@@ -153,7 +197,7 @@ This is a sentence in Markdown, containing `code`, **bold text**, and *italics*.
 
 ---
 
-## The first core concept: Markdown
+## Markdown
 
 .pull-left[
 **Input:**
@@ -170,7 +214,7 @@ vice versa.
 ```
 ]]
 
-
+--
 .pull-right[
 **Output:**
 
@@ -224,30 +268,14 @@ rnorm(5) # create 5 normal variates
 ---
 class: middle
 
-## Running R: R, RStudio, and edupod
+## Running R: R, RStudio
 
 ---
 
-## Edupod login: https://edupod.cns.utexas.edu
+## Using RStudio
 
 .center[
-<img src = "introduction_files/edupod-landing.png", width = 60%, style = "position:relative; top:-42px;"></img>
-]
-
----
-
-## Edupod login: https://edupod.cns.utexas.edu
-
-.center[
-<img src = "introduction_files/edupod-landing-edited.png", width = 60%, style = "position:relative; top:-42px;"></img>
-]
-
----
-
-## Edupod login: https://edupod.cns.utexas.edu
-
-.center[
-<img src = "introduction_files/edupod-login.png", width = 60%, style = "position:relative; top:-42px;"></img>
+<img src = "introduction_files/RStudio-clean.png", width = 60%, style = "position:relative"></img>
 ]
 
 ---
@@ -255,72 +283,82 @@ class: middle
 ## Using RStudio
 
 .center[
-<img src = "introduction_files/RStudio-clean.png", width = 80%, style = "position:relative; top:-52px;"></img>
+<img src = "introduction_files/RStudio-clean-edited.png", width = 60%, style = "position:relative"></img>
 ]
 
 ---
 
-## Using RStudio
+## Creating a new Project Folder
 
 .center[
-<img src = "introduction_files/RStudio-clean-edited.png", width = 80%, style = "position:relative; top:-52px;"></img>
+<img src = "introduction_files/RStudio-newProj1.png", width = 60%, style = "position:relative"></img>
 ]
 
 ---
 
-## Knitting an R Markdown file
+## Creating a new Project Folder
 
 .center[
-<img src = "introduction_files/RStudio-markdown.png", width = 80%, style = "position:relative; top:-52px;"></img>
+<img src = "introduction_files/RStudio-newProj2.png", width = 60%, style = "position:relative"></img>
 ]
 
 ---
 
-## Knitting an R Markdown file
+## Creating a new Project Folder
 
 .center[
-<img src = "introduction_files/RStudio-markdown-edited.png", width = 80%, style = "position:relative; top:-52px;"></img>
+<img src = "introduction_files/RStudio-newProj3.png", width = 60%, style = "position:relative"></img>
 ]
 
 ---
 
-
-## Knitting an R Markdown file
+## Creating a new Project Folder
 
 .center[
-<img src = "introduction_files/markdown-knitted.png", width = 80%, style = "position:relative; top:-52px;"></img>
+<img src = "introduction_files/RStudio-newProj4.png", width = 60%, style = "position:relative"></img>
 ]
 
 ---
 
-## Knitting to pdf
+## Creating a new Project Folder
 
 .center[
-<img src = "introduction_files/RStudio-markdown-edited2.png", width = 80%, style = "position:relative; top:-52px;"></img>
+<img src = "introduction_files/RStudio-newProj5.png", width = 60%, style = "position:relative"></img>
 ]
 
 ---
 
-## Knitting to pdf
+## Creating a new R Markdown file
 
 .center[
-<img src = "introduction_files/markdown-knit-pdf-edited.png", width = 80%, style = "position:relative; top:-52px;"></img>
+<img src = "introduction_files/RStudio-newFile1.png", width = 60%, style = "position:relative"></img>
 ]
 
 ---
 
-## Knitting to pdf
+## Creating a new R Markdown file
 
 .center[
-<img src = "introduction_files/markdown-knitted-pdf.png", width = 80%, style = "position:relative; top:-52px;"></img>
+<img src = "introduction_files/RStudio-newFile2.png", width = 60%, style = "position:relative"></img>
 ]
 
 ---
-
-## Knitting to pdf
+## Creating a new R Markdown file
 
 .center[
-<img src = "introduction_files/markdown-knitted-pdf-edited.png", width = 80%, style = "position:relative; top:-52px;"></img>
+<img src = "introduction_files/RStudio-newFile3.png", width = 60%, style = "position:relative"></img>
+]
+---
+## Knitting to PDF
+
+.center[
+<img src = "introduction_files/RStudio-newFile4.png", width = 60%, style = "position:relative"></img>
+]
+---
+## Knitting to PDF
+
+.center[
+<img src = "introduction_files/RStudio-newFile5.png", width = 60%, style = "position:relative"></img>
 ]
 
 ---
