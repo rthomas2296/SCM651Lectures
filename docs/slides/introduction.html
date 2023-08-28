@@ -19,7 +19,7 @@ class: center, middle, title-slide
 ### Roy Thomas
 ]
 .date[
-### last updated: 2023-08-26
+### last updated: 2023-08-28
 ]
 
 ---
@@ -107,8 +107,8 @@ Table: A cars dataset
 
 - ####Agenda
 - ####Attendance
-- ####Review of past OYOTs
 - ####Analytics in the News
+- ####Review of past OYOTs
 - ####Main Lecture with hands on work
 - ####Wrap up with next OYOTs
 
@@ -121,7 +121,7 @@ Table: A cars dataset
 
 ## Attendance
 
-#### [Attendance Sheet](a link to google sheet)
+#### [Attendance Sheet](https://docs.google.com/spreadsheets/d/1vq3NUorJ9A5W2zhn6Fz-hs8SVWFfa-HKPTVluJWLBS4/edit?usp=sharing)
 
 ---
 
@@ -194,108 +194,6 @@ Execute the code chunk with Ctrl+Shift+Enter   or Cmd+Shift+Enter
 ![](introduction_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
 
 ---
-class: middle, center
-
-## Markdown
-
----
-
-## Markdown
-
---
-
-**Input:**
-
-.small-font[
-```
-This is a sentence in Markdown, containing `code`, **bold text**,
-and *italics*.
-```
-]
-
-
---
-
-**Output:**
-
-.small-font[
-This is a sentence in Markdown, containing `code`, **bold text**, and *italics*.
-]
-
----
-
-## Markdown
-
-.pull-left[
-**Input:**
-
-.small-font[
-```
-## 1 Introduction
-
-Data visualization is part art 
-and part science. The challenge 
-is to get the art right without
-getting the science wrong and 
-vice versa.
-```
-]]
-
---
-.pull-right[
-**Output:**
-
-## 1 Introduction
-
-Data visualization is part art 
-and part science. The challenge 
-is to get the art right without
-getting the science wrong and 
-vice versa.
-
-]
-
-
-.absolute-bottom-right[
-Text taken from: C. O. Wilke, [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/introduction.html)
-]
-
----
-
-## R Markdown combines Markdown and R code
-
---
-
-**Input:**
-
-.small-font[
-
-````
-The function `rnorm()` creates normal variates.
-```{R}
-rnorm(5) # create 5 normal variates
-```
-````
-]
-
---
-
-**Output:**
-
-.small-font[
-
-The function `rnorm()` creates normal variates.
-
-```r
-rnorm(5) # create 5 normal variates
-```
-
-```
-[1] -0.23736582 -0.38636900  1.10841876  1.47943777 -0.08190021
-```
-]
-
-[//]: # "segment ends here"
 
 ---
 class: middle
@@ -392,6 +290,180 @@ class: middle
 .center[
 &lt;img src = "introduction_files/RStudio-newFile5.png", width = 60%, style = "position:relative"&gt;&lt;/img&gt;
 ]
+
+---
+class: middle, center
+
+## Markdown
+
+---
+
+## Markdown
+
+--
+
+**Input:**
+
+.small-font[
+```
+This is a sentence in Markdown, containing `code`, **bold text**,
+and _italics_.
+```
+]
+
+
+--
+
+**Output:**
+
+.small-font[
+This is a sentence in Markdown, containing `code`, **bold text**, and _italics_.
+]
+
+---
+
+## Markdown
+
+.pull-left[
+**Input:**
+
+.small-font[
+```
+## 1 Introduction
+
+Data visualization is part art 
+and part science. The challenge 
+is to get the art right without
+getting the science wrong and 
+vice versa.
+```
+]]
+
+--
+.pull-right[
+**Output:**
+
+## 1 Introduction
+
+Data visualization is part art 
+and part science. The challenge 
+is to get the art right without
+getting the science wrong and 
+vice versa.
+
+]
+
+
+.absolute-bottom-right[
+Text taken from: C. O. Wilke, [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/introduction.html)
+]
+
+---
+
+##Formatting commands
+
+The number of hashtags controls the level of the heading.&lt;br&gt;
+You can have one to six hash tags
+
+.pull-left[
+**Input:**
+```
+#Heading1
+##Heading2
+###Heading3
+####Heading4
+#####Heading5
+######Heading6
+```
+]
+
+--
+.pull-right[
+**Output:**
+#Heading1
+##Heading2
+###Heading3
+####Heading4
+#####Heading5
+######Heading6
+]
+---
+
+##Formatting commands
+
+.pull-left[
+**Input:**
+```
+ **bold**  
+`code`  
+ _italics_  
+ **_bold and italics_**  
+- unordered list
+- item 2
+ - item 2a (indent 1 tab)
+ - item 2b
+1. ordered list
+2. item 2
+ - item 2a (indent 1 tab)
+ - item 2b
+```
+]
+
+--
+.pull-right[
+**Output:**
+
+**bold**  
+`code`  
+_italics_  
+**_bold and italics_**  
+- unordered list
+- item 2
+ - item 2a (indent 1 tab)
+ - item 2b
+1. ordered list
+2. item 2
+ - item 2a (indent 1 tab)
+ - item 2b
+]
+
+
+---
+
+## R Markdown combines Markdown and R code
+
+--
+
+**Input:**
+
+.small-font[
+
+````
+The function `rnorm()` creates normal variates.
+```{R}
+rnorm(5) # create 5 normal variates
+```
+````
+]
+
+--
+
+**Output:**
+
+.small-font[
+
+The function `rnorm()` creates normal variates.
+
+```r
+rnorm(5) # create 5 normal variates
+```
+
+```
+[1] -0.95806319 -0.44005304  0.33273085  0.02136148  0.23134539
+```
+]
+
+[//]: # "segment ends here"
 
 ---
 
