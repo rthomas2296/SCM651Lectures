@@ -110,36 +110,39 @@ head(penguins)
 6 Adelie  Torgersen           39.3          20.6               190        3650
 # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;
 ```
-]
-
----
-
-## The pipe `|&gt;` feeds data into functions
-
-.tiny-font[
 
 ```r
-library(palmerpenguins) # loads the `penguins` dataset
-
-# head(penguins)
-penguins |&gt;
+--
+  
+penguins |&gt; 
   head()
 ```
 
 ```
-# A tibble: 6 × 8
-  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-  &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
-1 Adelie  Torgersen           39.1          18.7               181        3750
-2 Adelie  Torgersen           39.5          17.4               186        3800
-3 Adelie  Torgersen           40.3          18                 195        3250
-4 Adelie  Torgersen           NA            NA                  NA          NA
-5 Adelie  Torgersen           36.7          19.3               193        3450
-6 Adelie  Torgersen           39.3          20.6               190        3650
-# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;
+Warning in Ops.factor(left): '-' not meaningful for factors
+
+Warning in Ops.factor(left): '-' not meaningful for factors
+
+Warning in Ops.factor(left): '-' not meaningful for factors
+```
+
+```
+  species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g sex
+1      NA     NA           39.1          18.7               181        3750  NA
+2      NA     NA           39.5          17.4               186        3800  NA
+3      NA     NA           40.3          18.0               195        3250  NA
+4      NA     NA             NA            NA                NA          NA  NA
+5      NA     NA           36.7          19.3               193        3450  NA
+6      NA     NA           39.3          20.6               190        3650  NA
+  year
+1 2007
+2 2007
+3 2007
+4 2007
+5 2007
+6 2007
 ```
 ]
-
 
 
 ---
