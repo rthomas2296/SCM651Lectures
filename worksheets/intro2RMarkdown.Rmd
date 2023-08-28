@@ -60,4 +60,11 @@ plot(dens)            # plot density
 
 Now you try it. For example, take the built-in data set `cars`, which lists speed and stopping distance for cars from the 1920. Plot speed vs. distance. Then write a few sentences describing what you see.
 
+Here are some hints:
+To figure out what the cars dataset is, use ?cars
+You can LOOK at the dataset with various commands, like "head", "glimpse", "summary"...  Remember that in each of these commands, you have to provide the name of the dataset as an argument.
+
+To do a simple plot, use the plot(x,y) command, where x and y are the names of the COLUMNS.  So, for instance, x would be cars$speed
+
+
 
