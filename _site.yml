@@ -37,6 +37,8 @@ navbar:
           href: slides/advancedDesigns.html
         - text: "Lesson 11: Interactive Visualizations"
           href: slides/interactiveVisualizations.html
+        - text: "test2.Rmd"
+          href: slides/test2.Rmd
 
 
     - text: "Worksheets"
