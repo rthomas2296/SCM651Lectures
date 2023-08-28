@@ -13,7 +13,7 @@ navbar:
   right:
     - text: "Slides"
       menu:
-        - text: "Lesson 1: Visual Analytics Introduction"
+        - text: "Lesson 1: Visual Analytics Intro"
           href: slides/introduction.html
         - text: "Lesson 2: Data Wrangling"
           href: slides/dataWrangling.html
