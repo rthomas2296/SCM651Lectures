@@ -8,9 +8,7 @@ repository_url: https://github.com/rthomas2296/BUA400Fall2023
 include: [".nojekyll"]
 navbar:
   source_url: false
-  left:
-    - text: "Schedule"
-      href: schedule.html
+  
 
   right:
     - text: "Slides"
