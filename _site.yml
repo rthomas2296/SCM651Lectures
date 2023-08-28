@@ -44,6 +44,6 @@ navbar:
         - text: "Class 1: Intro to R Markdown"
           href: worksheets/intro-rmarkdown.Rmd
         - text: "Class 1: Intro to R Markdown (Solutions)"
-          href: worksheets/intro-rmarkdown-solutions.Rmd
+          href: worksheets/test2.Rmd
 
 output: distill::distill_article
