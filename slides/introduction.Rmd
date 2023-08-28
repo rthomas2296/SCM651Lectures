@@ -90,8 +90,8 @@ knitr::kable(
 
 - ####Agenda
 - ####Attendance
-- ####Review of past OYOTs
 - ####Analytics in the News
+- ####Review of past OYOTs
 - ####Main Lecture with hands on work
 - ####Wrap up with next OYOTs
 
@@ -104,7 +104,7 @@ knitr::kable(
 
 ## Attendance
 
-#### [Attendance Sheet](a link to google sheet)
+#### [Attendance Sheet](https://docs.google.com/spreadsheets/d/1vq3NUorJ9A5W2zhn6Fz-hs8SVWFfa-HKPTVluJWLBS4/edit?usp=sharing)
 
 ---
 
@@ -167,103 +167,6 @@ plot(mtcars$disp,mtcars$mpg)
 ```
 
 ---
-class: middle, center
-
-## Markdown
-
----
-
-## Markdown
-
---
-
-**Input:**
-
-.small-font[
-```
-This is a sentence in Markdown, containing `code`, **bold text**,
-and *italics*.
-```
-]
-
-
---
-
-**Output:**
-
-.small-font[
-This is a sentence in Markdown, containing `code`, **bold text**, and *italics*.
-]
-
----
-
-## Markdown
-
-.pull-left[
-**Input:**
-
-.small-font[
-```
-## 1 Introduction
-
-Data visualization is part art 
-and part science. The challenge 
-is to get the art right without
-getting the science wrong and 
-vice versa.
-```
-]]
-
---
-.pull-right[
-**Output:**
-
-## 1 Introduction
-
-Data visualization is part art 
-and part science. The challenge 
-is to get the art right without
-getting the science wrong and 
-vice versa.
-
-]
-
-
-.absolute-bottom-right[
-Text taken from: C. O. Wilke, [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/introduction.html)
-]
-
----
-
-## R Markdown combines Markdown and R code
-
---
-
-**Input:**
-
-.small-font[
-
-````
-The function `rnorm()` creates normal variates.
-`r ''````{R}
-rnorm(5) # create 5 normal variates
-```
-````
-]
-
---
-
-**Output:**
-
-.small-font[
-
-The function `rnorm()` creates normal variates.
-```{R}
-rnorm(5) # create 5 normal variates
-```
-]
-
-[//]: # "segment ends here"
 
 ---
 class: middle
@@ -360,6 +263,175 @@ class: middle
 .center[
 <img src = "introduction_files/RStudio-newFile5.png", width = 60%, style = "position:relative"></img>
 ]
+
+---
+class: middle, center
+
+## Markdown
+
+---
+
+## Markdown
+
+--
+
+**Input:**
+
+.small-font[
+```
+This is a sentence in Markdown, containing `code`, **bold text**,
+and _italics_.
+```
+]
+
+
+--
+
+**Output:**
+
+.small-font[
+This is a sentence in Markdown, containing `code`, **bold text**, and _italics_.
+]
+
+---
+
+## Markdown
+
+.pull-left[
+**Input:**
+
+.small-font[
+```
+## 1 Introduction
+
+Data visualization is part art 
+and part science. The challenge 
+is to get the art right without
+getting the science wrong and 
+vice versa.
+```
+]]
+
+--
+.pull-right[
+**Output:**
+
+## 1 Introduction
+
+Data visualization is part art 
+and part science. The challenge 
+is to get the art right without
+getting the science wrong and 
+vice versa.
+
+]
+
+
+.absolute-bottom-right[
+Text taken from: C. O. Wilke, [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/introduction.html)
+]
+
+---
+
+##Formatting commands
+
+The number of hashtags controls the level of the heading.<br>
+You can have one to six hash tags
+
+.pull-left[
+**Input:**
+```
+#Heading1
+##Heading2
+###Heading3
+####Heading4
+#####Heading5
+######Heading6
+```
+]
+
+--
+.pull-right[
+**Output:**
+#Heading1
+##Heading2
+###Heading3
+####Heading4
+#####Heading5
+######Heading6
+]
+---
+
+##Formatting commands
+
+.pull-left[
+**Input:**
+```
+ **bold**  
+`code`  
+ _italics_  
+ **_bold and italics_**  
+- unordered list
+- item 2
+ - item 2a (indent 1 tab)
+ - item 2b
+1. ordered list
+2. item 2
+ - item 2a (indent 1 tab)
+ - item 2b
+```
+]
+
+--
+.pull-right[
+**Output:**
+
+**bold**  
+`code`  
+_italics_  
+**_bold and italics_**  
+- unordered list
+- item 2
+ - item 2a (indent 1 tab)
+ - item 2b
+1. ordered list
+2. item 2
+ - item 2a (indent 1 tab)
+ - item 2b
+]
+
+
+---
+
+## R Markdown combines Markdown and R code
+
+--
+
+**Input:**
+
+.small-font[
+
+````
+The function `rnorm()` creates normal variates.
+`r ''````{R}
+rnorm(5) # create 5 normal variates
+```
+````
+]
+
+--
+
+**Output:**
+
+.small-font[
+
+The function `rnorm()` creates normal variates.
+```{R}
+rnorm(5) # create 5 normal variates
+```
+]
+
+[//]: # "segment ends here"
 
 ---
 
