@@ -34,7 +34,6 @@ update_geom_defaults("point", list(size = 2))
 - ####Review of past OYOTs
 - ####Filter, select, arrange, count, mutate
 - ####The pipe symbol
-- ####Relocate, slice, join
 - ####OYOTs (On Your Own Tasks)
 
 ---
@@ -91,6 +90,7 @@ Cntrl + Shift = M or Command + Shift + M)
 
 .tiny-font[
 ```{r}
+library(tidyverse)  # This library has a LOT OF functions that we use
 library(palmerpenguins) # loads the `penguins` dataset
 
 head(penguins)
@@ -103,6 +103,7 @@ head(penguins)
 
 .tiny-font[
 ```{r}
+library(tidyverse)  # This library has a LOT OF functions that we use
 library(palmerpenguins) # loads the `penguins` dataset
 
 # head(penguins)
@@ -115,11 +116,37 @@ penguins |>
 
 ---
 
-## The pipe `|>` feeds data into functions
+## A quick rundown on the ggplot function:
 
+In a long form, it would be written like this:
 .tiny-font[
-```{r penguins-scatter, eval = FALSE}
-ggplot(penguins, aes(bill_length_mm, bill_depth_mm, color = species)) + geom_point()
+```{r}
+ggplot(data = penguins, mapping = aes(bill_length_mm, bill_depth_mm)) +
+  geom_point()
+```
+]
+
+---
+
+## A quick rundown on the ggplot function:
+
+We can shorten that to:
+.tiny-font[
+```{r}
+ggplot(penguins, aes(bill_length_mm, bill_depth_mm)) +
+  geom_point()
+```
+]
+
+---
+
+## A quick rundown on the ggplot function:
+
+If we want to MAP the "species" to different colors:
+.tiny-font[
+```{r}
+ggplot(penguins, aes(bill_length_mm, bill_depth_mm, color = species)) +
+  geom_point()
 ```
 ]
 
@@ -128,11 +155,23 @@ ggplot(penguins, aes(bill_length_mm, bill_depth_mm, color = species)) + geom_poi
 ## The pipe `|>` feeds data into functions
 
 .tiny-font[
-```{r penguins-scatter2, eval = FALSE}
+```{r}
+ggplot(penguins, aes(bill_length_mm, bill_depth_mm, color = species)) + 
+  geom_point()
+```
+]
+
+---
+
+## The pipe `|>` feeds data into functions
+
+.tiny-font[
+```{r}
 # ggplot(penguins, aes(bill_length_mm, bill_depth_mm, color = species)) + geom_point()
 
 penguins |>
-  ggplot(aes(bill_length_mm, bill_depth_mm, color = species)) + geom_point()
+  ggplot(aes(bill_length_mm, bill_depth_mm, color = species)) + 
+  geom_point()
 ```
 ]
 
