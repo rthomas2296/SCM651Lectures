@@ -19,7 +19,7 @@ class: center, middle, title-slide
 ### Roy Thomas
 ]
 .date[
-### last updated: 2023-08-27
+### last updated: 2023-08-30
 ]
 
 ---
@@ -36,15 +36,15 @@ class: center, middle, title-slide
 - ####Review of past OYOTs
 - ####Filter, select, arrange, count, mutate
 - ####The pipe symbol
-- ####Relocate, slice, join
 - ####OYOTs (On Your Own Tasks)
 
 ---
 
 ##Review of past OYOTs
 
+- ####R and RStudio is up to date?
 - ####All packages installed?
-- ####Completed Challenge1 on RMarkdown?
+
 
 ---
 
@@ -93,6 +93,7 @@ Cntrl + Shift = M or Command + Shift + M)
 .tiny-font[
 
 ```r
+library(tidyverse)  # This library has a LOT OF functions that we use
 library(palmerpenguins) # loads the `penguins` dataset
 
 head(penguins)
@@ -119,6 +120,7 @@ head(penguins)
 .tiny-font[
 
 ```r
+library(tidyverse)  # This library has a LOT OF functions that we use
 library(palmerpenguins) # loads the `penguins` dataset
 
 # head(penguins)
@@ -144,13 +146,77 @@ penguins |&gt;
 
 ---
 
+## A quick rundown on the ggplot function:
+
+In a long form, it would be written like this:
+.tiny-font[
+
+```r
+ggplot(data = penguins, mapping = aes(bill_length_mm, bill_depth_mm)) +
+  geom_point()
+```
+
+```
+Warning: Removed 2 rows containing missing values (`geom_point()`).
+```
+
+![](dataWrangling_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## A quick rundown on the ggplot function:
+
+We can shorten that to:
+.tiny-font[
+
+```r
+ggplot(penguins, aes(bill_length_mm, bill_depth_mm)) +
+  geom_point()
+```
+
+```
+Warning: Removed 2 rows containing missing values (`geom_point()`).
+```
+
+![](dataWrangling_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## A quick rundown on the ggplot function:
+
+If we want to MAP the "species" to different colors:
+.tiny-font[
+
+```r
+ggplot(penguins, aes(bill_length_mm, bill_depth_mm, color = species)) +
+  geom_point()
+```
+
+```
+Warning: Removed 2 rows containing missing values (`geom_point()`).
+```
+
+![](dataWrangling_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+]
+
+---
+
 ## The pipe `|&gt;` feeds data into functions
 
 .tiny-font[
 
 ```r
-ggplot(penguins, aes(bill_length_mm, bill_depth_mm, color = species)) + geom_point()
+ggplot(penguins, aes(bill_length_mm, bill_depth_mm, color = species)) + 
+  geom_point()
 ```
+
+```
+Warning: Removed 2 rows containing missing values (`geom_point()`).
+```
+
+![](dataWrangling_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -163,8 +229,15 @@ ggplot(penguins, aes(bill_length_mm, bill_depth_mm, color = species)) + geom_poi
 # ggplot(penguins, aes(bill_length_mm, bill_depth_mm, color = species)) + geom_point()
 
 penguins |&gt;
-  ggplot(aes(bill_length_mm, bill_depth_mm, color = species)) + geom_point()
+  ggplot(aes(bill_length_mm, bill_depth_mm, color = species)) + 
+  geom_point()
 ```
+
+```
+Warning: Removed 2 rows containing missing values (`geom_point()`).
+```
+
+![](dataWrangling_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
 ]
 
 
