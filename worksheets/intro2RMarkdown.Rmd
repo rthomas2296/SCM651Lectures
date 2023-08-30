@@ -42,6 +42,10 @@ Try out basic R Markdown features, as described here: https://rmarkdown.rstudio.
 - Create a numbered list
 - Create a nested list
 
+
+Some caveats: In some versions, there has to be a SPACE between the hash tags and the header text.
+In some versions, there has to be TWO SPACES at the end of the text (to denote end of line)
+
 ## 2. Embedding R code
 
 R code embedded in R chunks will be executed and the output will be shown.

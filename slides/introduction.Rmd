@@ -295,44 +295,6 @@ This is a sentence in Markdown, containing `code`, **bold text**, and _italics_.
 
 ---
 
-## Markdown
-
-.pull-left[
-**Input:**
-
-.small-font[
-```
-## 1 Introduction
-
-Data visualization is part art 
-and part science. The challenge 
-is to get the art right without
-getting the science wrong and 
-vice versa.
-```
-]]
-
---
-.pull-right[
-**Output:**
-
-## 1 Introduction
-
-Data visualization is part art 
-and part science. The challenge 
-is to get the art right without
-getting the science wrong and 
-vice versa.
-
-]
-
-
-.absolute-bottom-right[
-Text taken from: C. O. Wilke, [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/introduction.html)
-]
-
----
-
 ##Formatting commands
 
 The number of hashtags controls the level of the heading.<br>

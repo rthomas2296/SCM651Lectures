@@ -41,8 +41,9 @@ update_geom_defaults("point", list(size = 2))
 
 ##Review of past OYOTs
 
+- ####R and RStudio is up to date?
 - ####All packages installed?
-- ####Completed Challenge1 on RMarkdown?
+
 
 ---
 
@@ -260,12 +261,8 @@ penguins |>
 ```
 
 ```{r echo = FALSE}
-# for some reason this data frame has row names, which are indicated with
-# an asterisk, which shows up as a highlighted row
 x <- penguins |>
   count(species)
-
-row.names(x) <- NULL
 x
 ```
 ]
