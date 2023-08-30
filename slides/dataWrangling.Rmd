@@ -120,7 +120,7 @@ penguins |>
 
 In a long form, it would be written like this:
 .tiny-font[
-```{r}
+```{r fig.dim=c(4.5,4.5)}
 ggplot(data = penguins, mapping = aes(bill_length_mm, bill_depth_mm)) +
   geom_point()
 ```
@@ -132,7 +132,7 @@ ggplot(data = penguins, mapping = aes(bill_length_mm, bill_depth_mm)) +
 
 We can shorten that to:
 .tiny-font[
-```{r}
+```{r fig.dim=c(4.5,4.5)}
 ggplot(penguins, aes(bill_length_mm, bill_depth_mm)) +
   geom_point()
 ```
@@ -144,7 +144,7 @@ ggplot(penguins, aes(bill_length_mm, bill_depth_mm)) +
 
 If we want to MAP the "species" to different colors:
 .tiny-font[
-```{r}
+```{r fig.dim=c(8,4.5)}
 ggplot(penguins, aes(bill_length_mm, bill_depth_mm, color = species)) +
   geom_point()
 ```
@@ -155,7 +155,7 @@ ggplot(penguins, aes(bill_length_mm, bill_depth_mm, color = species)) +
 ## The pipe `|>` feeds data into functions
 
 .tiny-font[
-```{r}
+```{r fig.dim=c(8,4.5)}
 ggplot(penguins, aes(bill_length_mm, bill_depth_mm, color = species)) + 
   geom_point()
 ```
@@ -166,7 +166,7 @@ ggplot(penguins, aes(bill_length_mm, bill_depth_mm, color = species)) +
 ## The pipe `|>` feeds data into functions
 
 .tiny-font[
-```{r}
+```{r fig.dim=c(8,4.5)}
 # ggplot(penguins, aes(bill_length_mm, bill_depth_mm, color = species)) + geom_point()
 
 penguins |>
