@@ -82,7 +82,7 @@ class: center, middle
 
 # `%>%` and `|>` is pronounced "and then"
 (The shortcut for the new pipe operator is 
-Cntrl + Shift = M or Command + Shift + M)
+Cntrl + Shift + M or Command + Shift + M)
 
 ---
 

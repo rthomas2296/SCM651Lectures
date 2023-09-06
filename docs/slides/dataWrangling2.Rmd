@@ -1,0 +1,172 @@
+---
+title: "Data Wrangling2"
+author: "Roy Thomas"
+date: "last updated: `r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    css: [default, "Wilke-slides-theme.css"]
+    lib_dir: libs
+    nature:
+      ratio: '16:9'
+      highlightStyle: github
+      highlightLines: true
+      slideNumberFormat: ''
+      titleSlideClass: [center, middle]
+---
+
+```{r setup, include=FALSE, echo=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(comment = "")
+
+library(tidyverse)
+# ggplot2 settings so plots scale well for slide size 
+theme_set(theme_gray(16))
+update_geom_defaults("point", list(size = 2))
+```
+
+## Agenda
+
+--
+
+- ####Attendance
+- ####Analytics in the News
+- ####Review of past OYOTs (data manipulation verbs)
+- ####Data Exploration: Missing Values
+- ####Data Exploration: Outliers
+- ####OYOTs (On Your Own Tasks)
+
+---
+
+##Attendance
+
+---
+
+##Analytics in the News
+
+---
+
+##Review of past OYOTs
+
+- ####Review of filter, select, arrange, count, mutate
+- ####Review of relocate, slice
+
+---
+
+## Data Manipulation on the StarWars dataset
+.tiny-font[
+```{r}
+library(tidyverse)  # This library has a LOT OF functions that we use
+?starwars
+starwars
+View(starwars)
+
+```
+]
+
+---
+
+## Filter
+.tiny-font[
+```{r}
+starwars |> 
+  filter(skin_color == "light", eye_color == "brown")
+```
+]
+
+---
+
+#### starwars |> arrange(height, mass)
+#### starwars |> arrange(desc(height))
+#### starwars |> slice(5:10)
+#### slice_head() and slice_tail()
+#### slice_head(n=3)
+#### slice_sample(n=5)
+
+---
+
+#### slice_min() and slice_max() select rows with highest or 
+#### lowest values of a variable. Note that we first must choose 
+#### only the values which are not NA.
+#### starwars |> 
+####   filter(!is.na(height)) |> 
+####   slice_max(height, n = 3)
+---
+
+#### select allows you to zoom in to the columns of interest
+#### starwars |> select(hair_color, skin_color, eye_color)
+#### starwars |> select(hair_color:eye_color)
+#### starwars |> select(!(hair_color:eye_color))
+#### starwars |> select(ends_with("color"))
+
+---
+
+##### rename and mutate
+##### starwars|> rename(home_world = homeworld)
+##### starwars |> mutate(height_m = height / 100)
+##### starwars |> 
+#####   mutate(height_m = height / 100) %>%
+#####   select(height_m, height, everything())
+##### starwars |> 
+#####   mutate(
+#####     height_m = height / 100,
+#####     BMI = mass / (height_m^2)
+#####   ) |> 
+#####   select(BMI, everything())
+##### If you only want to keep the new variables, use .keep = "none"
+##### starwars |> 
+#####   mutate(
+#####     height_m = height / 100,
+#####     BMI = mass / (height_m^2),
+#####     .keep = "none"
+#####   )
+
+---
+
+##### Change column order with relocate
+##### starwars|> 
+#####   relocate(sex:homeworld, .before = height)
+###Summarize
+##### starwars|> 
+#####   summarise(height = mean(height, na.rm = TRUE))
+
+---
+
+## Dealing with Missing Values
+To identify missing values use is.na() which returns a logical vector with TRUE in the element locations that contain missing values represented by NA. is.na() will work on vectors, lists, matrices, and data frames.
+
+##### vector with missing data
+##### x <- c(1:4, NA, 6:7, NA)
+##### x
+
+##### is.na(x)
+
+---
+## data frame with missing data
+##### df <- data.frame(col1 = c(1:3, NA),
+#####                  col2 = c("this", NA,"is", "text"), 
+#####                  col3 = c(TRUE, FALSE, TRUE, TRUE), 
+#####                  col4 = c(2.5, 4.2, 3.2, NA),
+#####                  stringsAsFactors = FALSE)
+
+##### identify NAs in full data frame
+##### is.na(df)
+
+##### identify NAs in specific data frame column
+##### is.na(df$col4)
+---
+To identify the location or the number of NAs we can leverage the which() and sum() functions:
+##### identify location of NAs in vector
+##### which(is.na(x))
+
+##### identify count of NAs in data frame
+##### sum(is.na(df))
+## compute the total missing values in each column is to use colSums():
+##### colSums(is.na(df))
+---
+
+## OYOTs (On Your Own Tasks)
+#### https://thomasadventure.blog/posts/r-count-na/ (also shows heatmap of na’s)
+#### Outliers: https://statsandr.com/blog/outliers-detection-in-r/
+
+---
+
