@@ -19,7 +19,9 @@ navbar:
           href: slides/dataWrangling.html
         - text: "Lesson 3: Data Wrangling Review"
           href: slides/dataWrangling2.html
-        - text: "Lesson 4: Visual Design Principles"
+        - text: "Lesson 4A: Telling A Story"
+          href: slides/tellingAStory.html
+        - text: "Lesson 4B: Visual Design Principles"
           href: slides/visualDesignPrinciples.html
         - text: "Lesson 5: Introduction to ggplot"
           href: slides/introductionToGgplot.html
