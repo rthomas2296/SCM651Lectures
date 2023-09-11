@@ -5,7 +5,7 @@
 #                                                           #
 #############################################################
 title: "Data wrangling 1"
-author: "Claus O. Wilke"
+author: "Roy Thomas"
 output: learnr::tutorial
 runtime: shiny_prerendered
 ---

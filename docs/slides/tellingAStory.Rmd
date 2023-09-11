@@ -31,6 +31,7 @@ theme_set(theme_gray(16)) # 16 for full width, 18 for half width
 update_geom_defaults("point", list(size = 2.0)) # 2 for full width, 2.5 for half width
 
 preprints <- read_csv(here("datasets", "preprints.csv"))
+
 ```
 
 
