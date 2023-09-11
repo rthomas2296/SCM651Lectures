@@ -45,5 +45,8 @@ navbar:
           href: worksheets/packages2Install.Rmd
         - text: "WS2: Intro to R Markdown"
           href: worksheets/intro2RMarkdown.Rmd
+        - text: "WS3: Data Wrangling Practrice"
+          href: worksheets/data-wrangling-1.Rmd
+
 
 output: distill::distill_article

@@ -19,7 +19,7 @@ class: center, middle, title-slide
 ### Roy Thomas
 ]
 .date[
-### last updated: 2023-08-27
+### last updated: 2023-09-11
 ]
 
 ---
@@ -27,10 +27,357 @@ class: center, middle, title-slide
 
 
 
-## This Lesson Material has not been uploaded as yet.
 
 ---
 
+## Simple example of what you should NOT do...
+
+.center[
+&lt;img src = "visualDesignPrinciples_files/wrongBarChart.jpg", width = 60%, style = "position:relative"&gt;&lt;/img&gt;
+]
+
+---
+
+## Another example ...
+
+.center[
+&lt;img src = "visualDesignPrinciples_files/uglyBarChart.jpg", width = 60%, style = "position:relative"&gt;&lt;/img&gt;
+]
+
+---
+## Another example ...
+
+.center[
+&lt;img src = "visualDesignPrinciples_files/badBarChart.jpg", width = 60%, style = "position:relative"&gt;&lt;/img&gt;
+]
+
+---
+## Finally, a half-way decent chart...
+
+.center[
+&lt;img src = "visualDesignPrinciples_files/goodBarChart.jpg", width = 60%, style = "position:relative"&gt;&lt;/img&gt;
+]
+
+---
+class: center middle
+
+## Mapping data onto aesthetics
+
+All data visualizations map data values into quantifiable features of the resulting graphic. We refer to these features as aesthetics.
+
+---
+## Components of Graphs
+
+.pull-left[
+&lt;img src = "visualDesignPrinciples_files/aestheticTypes.jpg", width = 100%, style = "position:relative"&gt;&lt;/img&gt;
+]
+--
+.pull-right[
+- A critical component is the x,y position
+- There could be other coordinate systems: Polar coordinates, or 3D coordinates
+- All graphical elements have a shape, size and color
+- Lines could have different widths, or dash-dot patterns
+- Fonts: font family, font face, font size
+]
+---
+class: center middle
+## Types of Variables
+---
+
+&lt;img src = "visualDesignPrinciples_files/typesOfVariables.png", width = 90%, style = "position:relative"&gt;&lt;/img&gt;
+
+---
+class: center middle
+
+&lt;img src = "visualDesignPrinciples_files/temperaturesDataset.png", width = 90%, style = "position:relative"&gt;&lt;/img&gt;
+#### Identify the Data Types
+---
+## Scales
+
+.pull-left[
+&lt;img src = "visualDesignPrinciples_files/scales.png", width = 100%, style = "position:relative"&gt;&lt;/img&gt;
+]
+--
+.pull-right[
+- Mapping between data values and aesthetics values is created via scales
+- A scale defines a unique mapping between data and aesthetics
+- 
+]
+---
+
+## Graph from Temperature Dataset
+
+.pull-left[
+&lt;img src = "visualDesignPrinciples_files/temperatureGraph.png", width = 100%, style = "position:relative"&gt;&lt;/img&gt;
+]
+--
+.pull-right[
+- Fairly standard visualization for a temperature curve
+- Map temperature onto Y Axis
+- Map "day of the year" to the X Axis
+- Map location onto color
+- Visualize these aesthetics with solid lines
+]
+---
+
+## Alternate Graph from Temperature Dataset
+
+&lt;img src = "visualDesignPrinciples_files/temperatureGraph2.png", width = 70%, style = "position:relative"&gt;&lt;/img&gt;
+
+--
+
+- We could map Location to Y Axis
+- Map Temperature to Color
+- As the key variable of interest, temperature, is shown as color, we need to show sufficiently large colored areas for the color to convey useful information
+- Therefore, we are using squares instead of lines, one for each month and location
+- Used the Average Temperature of each month
+- Month and Location are discrete (Month is ordered, while Location is not)
+- As location is not ordered, we can decide the order - chose an aesthetically pleasing order - pleasant staggering of colors
+
+---
+.center[
+## Graph with five scales
+
+&lt;img src = "visualDesignPrinciples_files/graphWithFiveScales.png", width = 50%, style = "position:relative"&gt;&lt;/img&gt;
+]
+--
+
+- Previous graphs had three scales (two positions and one color)
+- This graph has 5 scales (two position scales, one color scale, one size scale, one shape scale)
+
+---
+
+
+
+
+
+
+
+
+
+
+## Every story has an arc
+
+.center[
+Opening
+]
+
+.center[
+&lt;img src = "tellingAStory_files/arrow.svg", width = 3%, style = "margin-top: -0.5em; margin-bottom: -1em"&gt;&lt;/img&gt;
+
+.highlight[Challenge]
+]
+
+.center[
+&lt;img src = "tellingAStory_files/arrow.svg", width = 3%, style = "margin-top: -0.5em; margin-bottom: -1em"&gt;&lt;/img&gt;
+
+Action
+]
+
+.center[
+&lt;img src = "tellingAStory_files/arrow.svg", width = 3%, style = "margin-top: -0.5em; margin-bottom: -1em"&gt;&lt;/img&gt;
+
+.highlight[Resolution]
+]
+
+.absolute-bottom-right[
+Challenge and resolution are&lt;br&gt;the two most important parts
+]
+
+---
+## Other story structures
+
+--
+
+.center.move-up-1em[
+Action
+]
+
+--
+
+.center[
+&lt;img src = "tellingAStory_files/arrow.svg", width = 3%, style = "margin-top: -0.5em; margin-bottom: -1em"&gt;&lt;/img&gt;
+
+Background
+]
+
+--
+
+.center[
+&lt;img src = "tellingAStory_files/arrow.svg", width = 3%, style = "margin-top: -0.5em; margin-bottom: -1em"&gt;&lt;/img&gt;
+
+Development
+]
+
+--
+
+.center[
+&lt;img src = "tellingAStory_files/arrow.svg", width = 3%, style = "margin-top: -0.5em; margin-bottom: -1em"&gt;&lt;/img&gt;
+
+Climax
+]
+
+--
+
+.center[
+&lt;img src = "tellingAStory_files/arrow.svg", width = 3%, style = "margin-top: -0.5em; margin-bottom: -1em"&gt;&lt;/img&gt;
+
+Ending
+]
+
+--
+
+.absolute-bottom-right[
+(Better for action movies&lt;br&gt;than for scientific reports)
+]
+
+---
+class: center middle
+
+## Telling a story with figures
+
+---
+
+## Example: Preprints in biology
+
+.center[
+![](visualDesignPrinciples_files/figure-html/preprints-part1-1.svg)&lt;!-- --&gt;
+]
+
+.absolute-bottom-right[
+Opening
+]
+
+
+???
+
+Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reilly, 2019.](https://clauswilke.com/dataviz)
+
+
+---
+
+
+## Example: Preprints in biology
+
+.center[
+![](visualDesignPrinciples_files/figure-html/preprints-part1-1.svg)
+]
+
+
+&lt;div style = "position: absolute; top: 50%; left: 57%; width: 3.8in; background: white;"&gt;
+What happened in 2014 to curtail the growth?
+&lt;/div&gt;
+
+.absolute-bottom-right[
+Challenge
+]
+
+
+???
+
+Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reilly, 2019.](https://clauswilke.com/dataviz)
+
+---
+
+## Example: Preprints in biology
+
+.center[
+![](visualDesignPrinciples_files/figure-html/preprints-part2-1.svg)&lt;!-- --&gt;
+]
+
+.absolute-bottom-right[
+Resolution
+]
+
+&lt;div style = "position: absolute; top: 65%; left: 60%; width: 3.8in; background: white;"&gt;
+bioRxiv opened in 2014
+&lt;/div&gt;
+
+???
+
+Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reilly, 2019.](https://clauswilke.com/dataviz)
+
+---
+
+## Keep in mind
+
+--
+
+- Every figure needs a clear purpose within the story arc
+
+--
+
+- A complete arc will usually require at least two figures
+
+---
+
+## Prepare figures that make a clear point
+
+--
+
+.center[
+![](visualDesignPrinciples_files/figure-html/arrival-delay-vs-distance-1.svg)&lt;!-- --&gt;
+]
+
+???
+
+Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reilly, 2019.](https://clauswilke.com/dataviz)
+
+---
+
+## Prepare figures that make a clear point
+
+.center[
+![](visualDesignPrinciples_files/figure-html/mean-arrival-delay-nyc-1.svg)&lt;!-- --&gt;
+]
+
+&lt;div style = "position: absolute; top: 24%; left: 45%; background: white;"&gt;
+American and Delta&lt;br&gt;have the shortest delays
+&lt;/div&gt;
+
+???
+
+Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reilly, 2019.](https://clauswilke.com/dataviz)
+
+---
+
+## Make your figures memorable
+
+
+
+---
+
+background-image: url("https://clauswilke.com/dataviz/telling_a_story_files/figure-html/petownership-bar-1.png")
+background-position: left 50% top 60%
+background-size: 65%
+
+## Make your figures memorable
+
+???
+
+Figure from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reilly, 2019.](https://clauswilke.com/dataviz)
+
+
+---
+
+background-image: url("https://clauswilke.com/dataviz/telling_a_story_files/figure-html/petownership-isotype-1.png")
+background-position: left 50% top 60%
+background-size: 65%
+
+## Make your figures memorable
+
+???
+
+Figure from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reilly, 2019.](https://clauswilke.com/dataviz)
+
+
+[//]: # "segment ends here"
+
+---
+
+## Further reading
+
+- Fundamentals of Data Visualization: [Chapter 29: Telling a story and making a point](https://clauswilke.com/dataviz/telling-a-story.html)
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
