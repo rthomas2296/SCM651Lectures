@@ -145,7 +145,7 @@ class: center middle
 ]
 --
 
-- Previous graphs had three scales (two positions and one color)
+- Previous graphs had three scales (two positions and one color) 
 - This graph has 5 scales (two position scales, one color scale, one size scale, one shape scale)
 
 ---
