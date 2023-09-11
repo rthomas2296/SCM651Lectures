@@ -85,10 +85,8 @@ starwars |>
 ---
 
 #### slice_min() and slice_max() select rows with highest or 
-#### lowest values of a variable. Note that we first must choose 
-#### only the values which are not NA.
+#### lowest values of a variable. 
 #### starwars |> 
-####   filter(!is.na(height)) |> 
 ####   slice_max(height, n = 3)
 ---
 
@@ -104,7 +102,7 @@ starwars |>
 ##### starwars|> rename(home_world = homeworld)
 ##### starwars |> mutate(height_m = height / 100)
 ##### starwars |> 
-#####   mutate(height_m = height / 100) %>%
+#####   mutate(height_m = height / 100) |> 
 #####   select(height_m, height, everything())
 ##### starwars |> 
 #####   mutate(
