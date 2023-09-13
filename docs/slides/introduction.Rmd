@@ -1,0 +1,404 @@
+---
+title: "BUA 400 Visual Analytics"
+author: "Roy Thomas"
+date: "last updated: `r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    css: [default, "Wilke-slides-theme.css"]
+    lib_dir: libs
+    nature:
+      ratio: '16:9'
+      highlightStyle: github
+      highlightLines: true
+      slideNumberFormat: ''
+      titleSlideClass: [center, middle]
+---
+
+```{r setup, include=FALSE, echo=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(comment = "")
+```
+
+## Agenda
+
+--
+
+- ####Introduction
+- ####Typical Lecture
+- ####Syllabus
+- ####Attendance
+- ####Analytics in the News
+- ####Intro to Visual Analytics
+- ####R Markdown
+- ####OYOTs (On Your Own Tasks)
+
+
+---
+
+
+## Introduction
+
+--
+
+### What is Visual Analytics
+
+--
+<br>
+
+
+.center[
+<img src = "introduction_files/Visual-analytics-between-data-and-human.png", width = 55%, height = 55%></img>
+]
+
+.center[
+https://www.researchgate.net/figure/Visual-analytics-as-the-interplay-between-data-analysis-visualization-and-human_fig2_333884128
+]
+
+
+---
+<br><br><br><br>
+```{r include=TRUE, echo=FALSE}
+knitr::kable(
+  mtcars[1:10, ], 
+  caption = "A cars dataset"
+)
+```
+---
+
+
+<img src = "https://clauswilke.com/dataviz/coordinate_systems_axes_files/figure-html/worldmap-four-projections-1.png", width = 30%, style = "position:absolute; top: 12%; left: 25%; box-shadow: 3px 5px 3px 1px #00000080;"></img>
+
+--
+
+<img src = "https://clauswilke.com/dataviz/nested_proportions_files/figure-html/US-states-treemap-1.png",  width = 30%, style = "position:absolute; top: 22%; left: 35%; box-shadow: 3px 5px 3px 1px #00000080;"></img>
+
+
+--
+
+<img src = "https://clauswilke.com/dataviz/geospatial_data_files/figure-html/unemployment-geofacet-1.png",  width = 30%, style = "position:absolute; top: 32%; left: 45%; box-shadow: 3px 5px 3px 1px #00000080;"></img>
+
+--
+
+<img src = "https://clauswilke.com/dataviz/redundant_coding_files/figure-html/temp-ridgeline-colorbar-1.png",  width = 30%, style = "position:absolute; top: 42%; left: 30%; box-shadow: 3px 5px 3px 1px #00000080;"></img>
+
+--
+
+<img src = "https://clauswilke.com/dataviz/multi-panel_figures_files/figure-html/athletes-composite-good-1.png",  width = 30%, style = "position:absolute; top: 52%; left: 40%; box-shadow: 3px 5px 3px 1px #00000080;"></img>
+
+---
+## A Typical Lecture
+
+- ####Agenda
+- ####Attendance
+- ####Analytics in the News
+- ####Review of past OYOTs
+- ####Main Lecture with hands on work
+- ####Wrap up with next OYOTs
+
+---
+## Syllabus
+
+#### [Visual Analytics Syllabus](introduction_files/Fall2023_RT_BUA400_CourseSyllabus.pdf)
+
+---
+
+## Attendance
+
+#### [Attendance Sheet](https://docs.google.com/spreadsheets/d/1vq3NUorJ9A5W2zhn6Fz-hs8SVWFfa-HKPTVluJWLBS4/edit?usp=sharing)
+
+---
+
+## Course Breakdown
+
+- ####Some Theory on Visualizations
+- ####R and ggplot
+- ####Tableau
+- ####Microsoft Power BI
+
+---
+
+## What is ggplot?
+
+.center[
+<img src = "introduction_files/ggplot2-website-title.png", width = 60%></img>
+]
+
+--
+
+.center[
+<img src = "introduction_files/ggplot2-website-footer.png", width = 60%></img>
+]
+
+[//]: # "segment ends here"
+
+---
+class: middle, center
+
+## Analytics in the News
+
+---
+
+## Do you have?
+
+- ####<img src = "introduction_files/R_logo.png", width = 5%></img>
+- ####<img src = "introduction_files/RStudio-Logo.svg", width = 10%></img>
+
+
+- ####Download R from here: [https://www.r-project.org/](https://www.r-project.org/)
+- ####Download RStudio from here: [https://posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/)
+
+---
+
+## Steps to test...
+
+Open a new empty Rmd file  
+Create a "code chunk" by typing in Ctrl+Alt+i   or Cmd+Opt+i  
+Inside the code chunk, type in str(mtcars)  
+Execute the code chunk with Ctrl+Shift+Enter   or Cmd+Shift+Enter
+
+```{R include=TRUE, echo=FALSE}
+str(mtcars)
+```
+
+---
+####Plot of mpg against disp
+```{R include=TRUE, echo=FALSE}
+plot(mtcars$disp,mtcars$mpg)
+```
+
+---
+
+---
+class: middle
+
+## Running R: R, RStudio
+
+---
+
+## Using RStudio
+
+.center[
+<img src = "introduction_files/RStudio-clean.png", width = 60%, style = "position:relative"></img>
+]
+
+---
+
+## Using RStudio
+
+.center[
+<img src = "introduction_files/RStudio-clean-edited.png", width = 60%, style = "position:relative"></img>
+]
+
+---
+
+## Creating a new Project Folder
+
+.center[
+<img src = "introduction_files/RStudio-newProj1.png", width = 60%, style = "position:relative"></img>
+]
+
+---
+
+## Creating a new Project Folder
+
+.center[
+<img src = "introduction_files/RStudio-newProj2.png", width = 60%, style = "position:relative"></img>
+]
+
+---
+
+## Creating a new Project Folder
+
+.center[
+<img src = "introduction_files/RStudio-newProj3.png", width = 60%, style = "position:relative"></img>
+]
+
+---
+
+## Creating a new Project Folder
+
+.center[
+<img src = "introduction_files/RStudio-newProj4.png", width = 60%, style = "position:relative"></img>
+]
+
+---
+
+## Creating a new Project Folder
+
+.center[
+<img src = "introduction_files/RStudio-newProj5.png", width = 60%, style = "position:relative"></img>
+]
+
+---
+
+## Creating a new R Markdown file
+
+.center[
+<img src = "introduction_files/RStudio-newFile1.png", width = 60%, style = "position:relative"></img>
+]
+
+---
+
+## Creating a new R Markdown file
+
+.center[
+<img src = "introduction_files/RStudio-newFile2.png", width = 60%, style = "position:relative"></img>
+]
+
+---
+## Creating a new R Markdown file
+
+.center[
+<img src = "introduction_files/RStudio-newFile3.png", width = 60%, style = "position:relative"></img>
+]
+---
+## Knitting to PDF
+
+.center[
+<img src = "introduction_files/RStudio-newFile4.png", width = 60%, style = "position:relative"></img>
+]
+---
+## Knitting to PDF
+
+.center[
+<img src = "introduction_files/RStudio-newFile5.png", width = 60%, style = "position:relative"></img>
+]
+
+---
+class: middle, center
+
+## Markdown
+
+---
+
+## Markdown
+
+--
+
+**Input:**
+
+.small-font[
+```
+This is a sentence in Markdown, containing `code`, **bold text**,
+and _italics_.
+```
+]
+
+
+--
+
+**Output:**
+
+.small-font[
+This is a sentence in Markdown, containing `code`, **bold text**, and _italics_.
+]
+
+---
+
+##Formatting commands
+
+The number of hashtags controls the level of the heading.<br>
+You can have one to six hash tags
+
+.pull-left[
+**Input:**
+```
+#Heading1
+##Heading2
+###Heading3
+####Heading4
+#####Heading5
+######Heading6
+```
+]
+
+--
+.pull-right[
+**Output:**
+#Heading1
+##Heading2
+###Heading3
+####Heading4
+#####Heading5
+######Heading6
+]
+---
+
+##Formatting commands
+
+.pull-left[
+**Input:**
+```
+ **bold**  
+`code`  
+ _italics_  
+ **_bold and italics_**  
+- unordered list
+- item 2
+ - item 2a (indent 1 tab)
+ - item 2b
+1. ordered list
+2. item 2
+ - item 2a (indent 1 tab)
+ - item 2b
+```
+]
+
+--
+.pull-right[
+**Output:**
+
+**bold**  
+`code`  
+_italics_  
+**_bold and italics_**  
+- unordered list
+- item 2
+ - item 2a (indent 1 tab)
+ - item 2b
+1. ordered list
+2. item 2
+ - item 2a (indent 1 tab)
+ - item 2b
+]
+
+
+---
+
+## R Markdown combines Markdown and R code
+
+--
+
+**Input:**
+
+.small-font[
+
+````
+The function `rnorm()` creates normal variates.
+`r ''````{R}
+rnorm(5) # create 5 normal variates
+```
+````
+]
+
+--
+
+**Output:**
+
+.small-font[
+
+The function `rnorm()` creates normal variates.
+```{R}
+rnorm(5) # create 5 normal variates
+```
+]
+
+[//]: # "segment ends here"
+
+---
+
+## Further reading
+
+- [R Markdown tutorial](https://rmarkdown.rstudio.com/lesson-2.html)
+- [R Markdown cheatsheet](https://github.com/rstudio/cheatsheets/raw/main/rmarkdown.pdf)
+- [R Markdown book](https://bookdown.org/yihui/rmarkdown/)
