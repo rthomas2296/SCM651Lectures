@@ -23,8 +23,10 @@ navbar:
           href: slides/tellingAStory.html
         - text: "Lesson 4B: Visual Design Principles"
           href: slides/visualDesignPrinciples.html
-        - text: "Lesson 5: Introduction to ggplot"
+        - text: "Lesson 5A: Introduction to ggplot"
           href: slides/introductionToGgplot.html
+        - text: "Lesson 5B: Coordinate Systems and Axes"
+          href: slides/coordinateSystemsAxes.html
         - text: "Lesson 6: Basic Plot Types"
           href: slides/basicPlotTypes.html
         - text: "Lesson 7: Basic Plot Types 2"
