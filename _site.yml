@@ -49,6 +49,8 @@ navbar:
           href: worksheets/intro2RMarkdown.Rmd
         - text: "WS3: Data Wrangling Practrice"
           href: worksheets/data-wrangling-1.Rmd
+        - text: "WS4: Basic Plotting Practrice"
+          href: worksheets/basicPlotExercise.Rmd
 
 
 output: distill::distill_article
