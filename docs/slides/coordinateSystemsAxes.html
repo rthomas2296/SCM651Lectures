@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Coordinate systems and axes</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Roy Thomas" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="Wilke-slides-theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, title-slide
+
+.title[
+# Coordinate systems and axes
+]
+.author[
+### Roy Thomas
+]
+.date[
+### last updated: 2023-09-13
+]
+
+---
+
+
+
+
+## Most data visualizations use Cartesian coordinates
+
+.center[
+![](coordinateSystemsAxes_files/figure-html/cartesian-coord-1.svg)&lt;!-- --&gt;
+]
+
+???
+
+Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reilly, 2019.](https://clauswilke.com/dataviz)
+
+---
+
+## Changing units does not change the plot
+
+.pull-left[
+![](coordinateSystemsAxes_files/figure-html/temperature-normals-Houston-San-Diego-1.svg)&lt;!-- --&gt;
+]
+
+???
+
+Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reilly, 2019.](https://clauswilke.com/dataviz)
+
+--
+
+.pull-right[
+![](coordinateSystemsAxes_files/figure-html/temperature-normals-Houston-San-Diego-Celsius-1.svg)&lt;!-- --&gt;
+]
+
+---
+
+## If scale units are unrelated, aspect ratio is arbitrary
+
+.center[
+![](coordinateSystemsAxes_files/figure-html/temperature-normals-Houston-1.svg)&lt;!-- --&gt;
+]
+
+???
+
+Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reilly, 2019.](https://clauswilke.com/dataviz)
+
+---
+
+class: center middle
+
+## Non-linear scales and coordinate systems
+
+---
+
+## Logarithmic scales (log scales)
+
+.small-text[
+Visualize these five values: 1, &amp;nbsp; 3.16, &amp;nbsp; 10, &amp;nbsp; 31.6, &amp;nbsp; 100
+]
+
+--
+
+.center.nogap[
+![](coordinateSystemsAxes_files/figure-html/linear-log-scales-1.svg)&lt;!-- --&gt;
+]
+
+--
+
+.center.nogap[
+![](coordinateSystemsAxes_files/figure-html/linear-log-scales2-1.svg)&lt;!-- --&gt;
+]
+
+
+--
+
+.center.nogap[
+![](coordinateSystemsAxes_files/figure-html/linear-log-scales3-1.svg)&lt;!-- --&gt;
+]
+
+---
+
+## Example: Population number of Texas counties
+
+A linear scale emphasizes large counties
+
+.center.nogap[
+![](coordinateSystemsAxes_files/figure-html/texas-counties-linear-1.svg)&lt;!-- --&gt;
+]
+
+
+???
+
+Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reilly, 2019.](https://clauswilke.com/dataviz)
+
+
+---
+
+## Example: Population number of Texas counties
+
+A log scale shows symmetry around the median
+
+.center.nogap[
+![](coordinateSystemsAxes_files/figure-html/texas-counties-log-1.svg)&lt;!-- --&gt;
+]
+
+
+???
+
+Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reilly, 2019.](https://clauswilke.com/dataviz)
+
+---
+
+## Nonlinear coordinate systems: Polar coordinates
+
+.pull-left[
+![](coordinateSystemsAxes_files/figure-html/cartesian-polar-left-1.svg)&lt;!-- --&gt;
+]
+
+???
+
+Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reilly, 2019.](https://clauswilke.com/dataviz)
+
+--
+
+.pull-right[
+![](coordinateSystemsAxes_files/figure-html/cartesian-polar-right-1.svg)&lt;!-- --&gt;
+]
+
+---
+
+## Cartesian vs polar example
+
+.pull-left[
+![](coordinateSystemsAxes_files/figure-html/temp-normals-vs-time-cartesian-1.svg)&lt;!-- --&gt;
+]
+
+???
+
+Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reilly, 2019.](https://clauswilke.com/dataviz)
+
+--
+
+.pull-right[
+![](coordinateSystemsAxes_files/figure-html/temp-normals-vs-time-polar-1.svg)&lt;!-- --&gt;
+]
+
+[//]: # "segment ends here"
+
+---
+class: center middle
+
+## Scales and coordinate systems in **ggplot2**
+
+---
+
+## Getting the data
+
+The `boxoffice` dataset:
+
+.tiny-font[
+
+```r
+boxoffice &lt;- tibble(
+  rank = 1:5,
+  title = c("Star Wars", "Jumanji", "Pitch Perfect 3", "Greatest Showman", "Ferdinand"),
+  amount = c(71.57, 36.17, 19.93, 8.81, 7.32) # million USD
+)
+```
+]
+
+--
+
+The `tx_counties` dataset:
+
+.tiny-font[
+
+```r
+tx_counties &lt;- read_csv("https://wilkelab.org/SDS375/datasets/US_census.csv") %&gt;% 
+  filter(state == "Texas") %&gt;%
+  mutate(popratio = pop2010/median(pop2010)) %&gt;%
+  arrange(desc(popratio)) %&gt;%
+  mutate(index = 1:n())
+```
+]
+
+---
+
+## Getting the data
+
+The `temperatures` dataset:
+
+.tiny-font[
+
+```r
+temperatures &lt;- read_csv("https://wilkelab.org/SDS375/datasets/tempnormals.csv") %&gt;%
+  mutate(
+    location = factor(
+      location, levels = c("Death Valley", "Houston", "San Diego", "Chicago")
+    )
+  ) %&gt;%
+  select(location, station_id, day_of_year, month, temperature)
+```
+]
+
+---
+
+## Scale functions customize the x and y axes
+
+Recall the box-office example from a prior lecture
+
+.pull-left.tiny-font[
+
+```r
+ggplot(boxoffice) +
+  aes(amount, fct_reorder(title, amount)) +
+  geom_col()
+```
+]
+
+--
+
+.pull-right[
+![](coordinateSystemsAxes_files/figure-html/boxoffice-scale-progression1-out-1.svg)&lt;!-- --&gt;
+]
+
+
+---
+
+## Scale functions customize the x and y axes
+
+Add scale functions (no change in figure so far)
+
+.pull-left.tiny-font[
+
+```r
+ggplot(boxoffice) +
+  aes(amount, fct_reorder(title, amount)) +
+  geom_col() +
+* scale_x_continuous() +
+* scale_y_discrete()
+```
+]
+
+.pull-right[
+![](coordinateSystemsAxes_files/figure-html/boxoffice-scale-progression2-out-1.svg)&lt;!-- --&gt;
+]
+
+---
+
+## Scale functions customize the x and y axes
+
+The parameter `name` sets the axis title
+
+.pull-left.tiny-font[
+
+```r
+ggplot(boxoffice) +
+  aes(amount, fct_reorder(title, amount)) +
+  geom_col() +
+  scale_x_continuous(
+*   name = "weekend gross (million USD)"
+  ) +
+  scale_y_discrete(
+*   name = NULL  # no axis title
+  )
+```
+]
+
+.pull-right[
+![](coordinateSystemsAxes_files/figure-html/boxoffice-scale-progression3-out-1.svg)&lt;!-- --&gt;
+]
+
+Note: We could do the same with `xlab()` and `ylab()`
+
+---
+
+## Scale functions customize the x and y axes
+
+The parameter `limits` sets the scale limits
+
+.pull-left.tiny-font[
+
+```r
+ggplot(boxoffice) +
+  aes(amount, fct_reorder(title, amount)) +
+  geom_col() +
+  scale_x_continuous(
+    name = "weekend gross (million USD)",
+*   limits = c(0, 80)
+  ) +
+  scale_y_discrete(
+    name = NULL
+  )
+```
+]
+
+.pull-right[
+![](coordinateSystemsAxes_files/figure-html/boxoffice-scale-progression4-out-1.svg)&lt;!-- --&gt;
+]
+
+Note: We could do the same with `xlim()` and `ylim()`
+
+
+---
+
+## Scale functions customize the x and y axes
+
+The parameter `breaks` sets the axis tick positions
+
+.pull-left.tiny-font[
+
+```r
+ggplot(boxoffice) +
+  aes(amount, fct_reorder(title, amount)) +
+  geom_col() +
+  scale_x_continuous(
+    name = "weekend gross (million USD)",
+    limits = c(0, 80),
+*   breaks = c(0, 25, 50, 75)
+  ) +
+  scale_y_discrete(
+    name = NULL
+  )
+```
+]
+
+.pull-right[
+![](coordinateSystemsAxes_files/figure-html/boxoffice-scale-progression5-out-1.svg)&lt;!-- --&gt;
+]
+
+---
+
+## Scale functions customize the x and y axes
+
+The parameter `labels` sets the axis tick labels
+
+.pull-left.tiny-font[
+
+```r
+ggplot(boxoffice) +
+  aes(amount, fct_reorder(title, amount)) +
+  geom_col() +
+  scale_x_continuous(
+    name = "weekend gross",
+    limits = c(0, 80),
+    breaks = c(0, 25, 50, 75),
+*   labels = c("0", "$25M", "$50M", "$75M")
+  ) +
+  scale_y_discrete(
+    name = NULL
+  )
+```
+]
+
+.pull-right[
+![](coordinateSystemsAxes_files/figure-html/boxoffice-scale-progression6-out-1.svg)&lt;!-- --&gt;
+]
+
+---
+
+## Scale functions customize the x and y axes
+
+The parameter `expand` sets the axis expansion
+
+.pull-left.tiny-font[
+
+```r
+ggplot(boxoffice) +
+  aes(amount, fct_reorder(title, amount)) +
+  geom_col() +
+  scale_x_continuous(
+    name = "weekend gross",
+    limits = c(0, 80),
+    breaks = c(0, 25, 50, 75),
+    labels = c("0", "$25M", "$50M", "$75M"),
+*   expand = expansion(mult = c(0, 0.06))
+  ) +
+  scale_y_discrete(
+    name = NULL
+  )
+```
+]
+
+.pull-right[
+![](coordinateSystemsAxes_files/figure-html/boxoffice-scale-progression7-out-1.svg)&lt;!-- --&gt;
+]
+
+---
+
+## Scale functions define transformations
+
+
+.pull-left.nogap[
+
+Linear y scale:
+
+.tiny-font[
+
+```r
+ggplot(tx_counties) +
+  aes(x = index, y = popratio) +
+  geom_point() +
+* scale_y_continuous()
+```
+
+![](coordinateSystemsAxes_files/figure-html/tx-counties-ggplot-linear-1.svg)&lt;!-- --&gt;
+]]
+
+--
+
+.pull-right.nogap[
+
+Log y scale:
+
+.tiny-font[
+
+```r
+ggplot(tx_counties) +
+  aes(x = index, y = popratio) +
+  geom_point() +
+* scale_y_log10()
+```
+
+![](coordinateSystemsAxes_files/figure-html/tx-counties-ggplot-log-1.svg)&lt;!-- --&gt;
+]]
+
+
+---
+
+## Parameters work the same for all scale functions
+
+
+.pull-left.nogap.tiny-font[
+
+```r
+ggplot(tx_counties) +
+  aes(x = index, y = popratio) +
+  geom_point() +
+  scale_y_continuous(
+    name = "population number / median",
+    breaks = c(0, 100, 200),
+    labels = c("0", "100", "200")
+  )
+```
+
+![](coordinateSystemsAxes_files/figure-html/tx-counties-ggplot-linear2-1.svg)&lt;!-- --&gt;
+]
+
+.pull-right.nogap.tiny-font[
+
+```r
+ggplot(tx_counties) +
+  aes(x = index, y = popratio) +
+  geom_point() +
+  scale_y_log10(
+    name = "population number / median",
+    breaks = c(0.01, 1, 100),
+    labels = c("0.01", "1", "100")
+  )
+```
+
+![](coordinateSystemsAxes_files/figure-html/tx-counties-ggplot-log2-1.svg)&lt;!-- --&gt;
+]
+
+---
+
+## Coords define the coordinate system
+
+
+
+.nogap.tiny-font[
+
+```r
+ggplot(temperatures, aes(day_of_year, temperature, color = location)) +
+  geom_line() +
+* coord_cartesian()  # cartesian coords are the default
+```
+
+.center[
+![](coordinateSystemsAxes_files/figure-html/temperatures-cartesian-out-1.svg)&lt;!-- --&gt;
+]]
+
+
+---
+
+## Coords define the coordinate system
+
+.nogap.tiny-font[
+
+```r
+ggplot(temperatures, aes(day_of_year, temperature, color = location)) +
+  geom_line() +
+* coord_polar()   # polar coords
+```
+
+.center[
+![](coordinateSystemsAxes_files/figure-html/temperatures-polar-out-1.svg)&lt;!-- --&gt;
+]]
+
+
+---
+
+## Coords define the coordinate system
+
+.nogap.tiny-font[
+
+```r
+ggplot(temperatures, aes(day_of_year, temperature, color = location)) +
+  geom_line() +
+  coord_polar() + 
+* scale_y_continuous(limits = c(0, 105))  # fix up temperature limits
+```
+
+.center[
+![](coordinateSystemsAxes_files/figure-html/temperatures-polar2-out-1.svg)&lt;!-- --&gt;
+]]
+
+[//]: # "segment ends here"
+
+---
+
+## Further reading
+
+- Fundamentals of Data Visualization: [Chapter 3: Coordinate systems and axes](https://clauswilke.com/dataviz/coordinate-systems-axes.html)
+- **ggplot2** reference documentation: [Scales](https://ggplot2.tidyverse.org/reference/index.html#section-scales)
+- **ggplot2** reference documentation: [Coordinate systems](https://ggplot2.tidyverse.org/reference/index.html#section-coordinate-systems)
+- **ggplot2** book: [Position scales](https://ggplot2-book.org/scale-position.html)
+- **ggplot2** book: [Coordinate systems](https://ggplot2-book.org/coord.html)
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"slideNumberFormat": ""
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
