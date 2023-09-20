@@ -730,52 +730,6 @@ ggplot(titanic, aes(age)) +
 
 Here, `bw` is a parameter of `stat_density()`, not of `geom_line()`.
 
----
-
-## We can explicitly map results from stat computations
-
-.tiny-font[
-```{r titanic-stat-demo7, eval = FALSE}
-ggplot(titanic, aes(age)) +
-  geom_tile( # geom_tile() draws rectangular colored areas
-    aes(
-      y = 1, # draw all tiles at the same y location
-      fill = after_stat(density)  # use computed density for fill
-    ),
-    stat = "density",
-    n = 20    # number of points calculated by stat_density() 
-  ) 
-```
-]
-
-.center[
-```{r titanic-stat-demo7-out, ref.label = "titanic-stat-demo7", echo = FALSE, fig.width = 10, fig.asp = 0.3, dev = "svg"}
-```
-]
-
-
----
-
-## We can explicitly map results from stat computations
-
-.tiny-font[
-```{r titanic-stat-demo8, eval = FALSE}
-ggplot(titanic, aes(age)) +
-  geom_tile( # geom_tile() draws rectangular colored areas
-    aes(
-      y = 1, # draw all tiles at the same y location
-      fill = after_stat(density)  # use computed density for fill
-    ),
-    stat = "density",
-    n = 200   # number of points calculated by stat_density() 
-  ) 
-```
-]
-
-.center[
-```{r titanic-stat-demo8-out, ref.label = "titanic-stat-demo8", echo = FALSE, fig.width = 10, fig.asp = 0.3, dev = "svg"}
-```
-]
 
 [//]: # "segment ends here"
 

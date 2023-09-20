@@ -354,12 +354,21 @@ class: center middle
 
 .pull-right[
 ![](visualizingDistributions1_files/figure-html/titanic-age-hist-1.svg)&lt;!-- --&gt;
+#### Notice the dip around 10. You don't want to lose that.
 ]
 
 ???
 
 Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reilly, 2019.](https://clauswilke.com/dataviz)
 
+
+---
+
+# Histograms depend on the chosen bin width
+### Look at the next screen of plots
+- A bin width of 1 is too "fine".  You see too many variations
+- A bin width of 3 or 5 seems good.
+- A bin width of 15 seem too large a bin width. Notice, we have lost the dip at 10.
 
 ---
 
@@ -378,6 +387,7 @@ Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reill
 
 
 ## Alternative to histogram: Kernel density estimate (KDE)
+#### Also known as Density Plots
 
 .pull-left[
 ![](visualizingDistributions1_files/figure-html/titanic-age-hist2-1.svg)&lt;!-- --&gt;
@@ -398,7 +408,15 @@ Histograms show raw counts, KDEs show proportions. (Total area = 1)
 Figures redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reilly, 2019.](https://clauswilke.com/dataviz)
 
 ---
+## KDEs also depend on parameter settings
+###### On the next screen you are going to see different plots
+###### They have been done with different bandwidths, and in one case, a different kernel
+###### There are many kernels for doing density estimates. The ones shown here are Gaussian and Rectangular
+- ggplot(titanic, aes(x = age)) + geom_density(fill = "skyblue", bw = .5, kernel = "gaussian")
+- ggplot(titanic, aes(x = age)) + geom_density(fill = "skyblue", bw = 2.0, kernel = "gaussian")
+- ggplot(titanic, aes(x = age)) + geom_density(fill = "skyblue", bw = 1, kernel = "rectangular")
 
+---
 
 ## KDEs also depend on parameter settings
 
@@ -430,12 +448,14 @@ Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reill
 
 .pull-left[
 ![](visualizingDistributions1_files/figure-html/titanic-age-hist-stacked-1.svg)&lt;!-- --&gt;
+Is the female bar over the male bar?
 ]
 
 --
 
 .pull-right[
 ![](visualizingDistributions1_files/figure-html/titanic-age-hist-overlap-1.svg)&lt;!-- --&gt;
+Now we have a 3rd color, and do the bars really start at 0?
 ]
 
 --
@@ -452,6 +472,7 @@ Figures redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reil
 
 .center[
 ![](visualizingDistributions1_files/figure-html/titanic-age-pyramid-1.svg)&lt;!-- --&gt;
+When you have exactly two distributions.  Reverse the direction of one.
 ]
 
 
@@ -766,52 +787,6 @@ ggplot(titanic, aes(age)) +
 
 Here, `bw` is a parameter of `stat_density()`, not of `geom_line()`.
 
----
-
-## We can explicitly map results from stat computations
-
-.tiny-font[
-
-```r
-ggplot(titanic, aes(age)) +
-  geom_tile( # geom_tile() draws rectangular colored areas
-    aes(
-      y = 1, # draw all tiles at the same y location
-      fill = after_stat(density)  # use computed density for fill
-    ),
-    stat = "density",
-    n = 20    # number of points calculated by stat_density() 
-  ) 
-```
-]
-
-.center[
-![](visualizingDistributions1_files/figure-html/titanic-stat-demo7-out-1.svg)&lt;!-- --&gt;
-]
-
-
----
-
-## We can explicitly map results from stat computations
-
-.tiny-font[
-
-```r
-ggplot(titanic, aes(age)) +
-  geom_tile( # geom_tile() draws rectangular colored areas
-    aes(
-      y = 1, # draw all tiles at the same y location
-      fill = after_stat(density)  # use computed density for fill
-    ),
-    stat = "density",
-    n = 200   # number of points calculated by stat_density() 
-  ) 
-```
-]
-
-.center[
-![](visualizingDistributions1_files/figure-html/titanic-stat-demo8-out-1.svg)&lt;!-- --&gt;
-]
 
 [//]: # "segment ends here"
 
