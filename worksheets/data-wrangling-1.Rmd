@@ -6,12 +6,12 @@
 #############################################################
 title: "Data wrangling 1"
 author: "Roy Thomas"
-output: learnr::tutorial
-runtime: shiny_prerendered
+output:
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
-library(learnr)
+#library(learnr)
 library(tidyverse)
 library(palmerpenguins)
 knitr::opts_chunk$set(echo = FALSE, comment = "")
@@ -47,7 +47,7 @@ Try this yourself. Write code that displays the first few lines of the `penguins
 penguins
 ```
 
-```{r pipe-hint}
+```{r pipe-hint, eval=FALSE}
 penguins ___ head()
 ```
 
@@ -69,7 +69,7 @@ penguins |>
 
 Now it's your turn. Pick all penguins from the island Dream:
 
-```{r filter-island, exercise=TRUE}
+```{r filter-island, eval=FALSE}
 penguins |>
   filter(___)
 ```
@@ -89,7 +89,7 @@ To try this out, pick all penguins of species Chinstrap from the island Dream:
 
 ```
 
-```{r filter-species-island-hint}
+```{r filter-species-island-hint, eval=FALSE}
 penguins |>
   filter(species == ___, island == ___)
 ```
@@ -114,7 +114,7 @@ Try this yourself, picking the columns representing the penguin species (`specie
 
 ```
 
-```{r select-exercise-hint}
+```{r select-exercise-hint, eval=FALSE}
 penguins |>
   select(___)
 ```
@@ -134,7 +134,7 @@ Try this. Remove the column `species`.
 
 ```
 
-```{r select-remove-hint}
+```{r select-remove-hint, eval=FALSE}
 penguins |>
   select(___)
 ```
@@ -151,7 +151,7 @@ And now remove both `species` and `island`.
 
 ```
 
-```{r select-remove2-hint}
+```{r select-remove2-hint, eval=FALSE}
 penguins |>
   select(-___, -___)
 ```
@@ -178,7 +178,7 @@ Now it's your turn. Sort the penguins by bill length:
 
 ```
 
-```{r arrange-bill-length-hint}
+```{r arrange-bill-length-hint, eval=FALSE}
 penguins |>
   arrange(___)
 ```
@@ -198,12 +198,12 @@ Try this out. Sort the penguins by bill length, from largest to smallest:
 
 ```
 
-```{r arrange-bill-length-desc-hint-1}
+```{r arrange-bill-length-desc-hint-1, eval=FALSE}
 penguins |>
   arrange(___)
 ```
 
-```{r arrange-bill-length-desc-hint-2}
+```{r arrange-bill-length-desc-hint-2, eval=FALSE}
 penguins |>
   arrange(___(bill_length_mm))
 ```
@@ -229,7 +229,7 @@ Now try this yourself. Count how many male and female penguins there are.
 
 ```
 
-```{r count-simple-hint}
+```{r count-simple-hint, eval=FALSE}
 penguins |>
   count(___)
 ```
@@ -245,7 +245,7 @@ We can also perform more fine-grained counts, by providing the `count()` functio
 
 ```
 
-```{r count-complex-hint}
+```{r count-complex-hint, eval=FALSE}
 penguins |>
   count(___, sex)
 ```
@@ -261,7 +261,7 @@ Now count how many penguins of each species the dataset contains for each island
 
 ```
 
-```{r count-complex2-hint}
+```{r count-complex2-hint, eval=FALSE}
 penguins |>
   count(___, species)
 ```
@@ -283,13 +283,13 @@ Try this out by counting the number of penguins of each species and then sorting
 
 ```
 
-```{r analysis-chain-hint-1}
+```{r analysis-chain-hint-1, eval=FALSE}
 penguins |>
   count(___) |>
   arrange(___)
 ```
 
-```{r analysis-chain-hint-2}
+```{r analysis-chain-hint-2, eval=FALSE}
 penguins |>
   count(species) |>
   arrange(___)
@@ -307,7 +307,7 @@ You may remember from before that the default sorting is from the smallest to th
 
 ```
 
-```{r analysis-chain2-hint}
+```{r analysis-chain2-hint, eval=FALSE}
 penguins |>
   count(species) |>
   arrange(desc(___))
@@ -354,7 +354,7 @@ Note that the part to the left of the equals sign (here, `sum`) is the name of t
 
 Now apply this concept to the `penguins` dataset. Add a new column `bill_ratio` that is the ratio of bill length and bill depth:
 
-```{r mutate-bill-ratio, exercise=TRUE}
+```{r mutate-bill-ratio, exercise=TRUE, eval=FALSE}
 penguins |>
   select(species, bill_length_mm, bill_depth_mm) |>
   mutate(
@@ -362,7 +362,7 @@ penguins |>
   )
 ```
 
-```{r mutate-bill-ratio-hint}
+```{r mutate-bill-ratio-hint, eval=FALSE}
 penguins |>
   select(species, bill_length_mm, bill_depth_mm) |>
   mutate(
@@ -411,7 +411,7 @@ data |>
 
 Now try this yourself. Count how many penguins of different species have flippers longer than 200mm. Then sort your results from most frequent to least frequent.
 
-```{r flipper-length-count, exercise = TRUE}
+```{r flipper-length-count, exercise = TRUE, eval=FALSE}
 penguins |>
   mutate(
     ___
@@ -420,7 +420,7 @@ penguins |>
   arrange(___)
 ```
 
-```{r flipper-length-count-hint-1}
+```{r flipper-length-count-hint-1, eval=FALSE}
 penguins |>
   mutate(
     flipper_length = ifelse(___, "greater than 200mm", "less than 200mm")
@@ -429,7 +429,7 @@ penguins |>
   arrange(___)
 ```
 
-```{r flipper-length-count-hint-2}
+```{r flipper-length-count-hint-2, eval=FALSE}
 penguins |>
   mutate(
     flipper_length = ifelse(___, "greater than 200mm", "less than 200mm")

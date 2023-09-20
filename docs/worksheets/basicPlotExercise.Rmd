@@ -33,4 +33,5 @@ knitr::opts_chunk$set(echo = TRUE)
 10. What happens if you map the same variable to multiple aesthetics?
 
 11. Make a scatterplot of bill_depth_mm vs. bill_length_mm and color the points by species. What does adding coloring by species reveal about the relationship between these two variables? What about faceting by species?
+
 ---

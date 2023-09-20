@@ -29,28 +29,32 @@ navbar:
           href: slides/coordinateSystemsAxes.html
         - text: "Lesson 6: Basic Plot Types"
           href: slides/basicPlotTypes.html
-        - text: "Lesson 7: Basic Plot Types 2"
-          href: slides/basicPlotTypes2.html
-        - text: "Lesson 8: More Plot Types"
-          href: slides/morePlotTypes.html
-        - text: "Lesson 9: More Plot Types 2"
-          href: slides/morePlotTypes2.html
-        - text: "Lesson 10: Advanced Designs"
-          href: slides/advancedDesigns.html
-        - text: "Lesson 11: Interactive Visualizations"
-          href: slides/interactiveVisualizations.html
+        - text: "Lesson 7A: Visualizing Distributions 1"
+          href: slides/visualizingDistributions1.html
+        - text: "Lesson 7B: Visualizing Distributions 2"
+          href: slides/visualizingDistributions2.html
 
 
     - text: "Worksheets"
       menu:
         - text: "WS1: Packages to install"
-          href: worksheets/packages2Install.Rmd
+          href: worksheets/packages2Install.html
         - text: "WS2: Intro to R Markdown"
-          href: worksheets/intro2RMarkdown.Rmd
-        - text: "WS3: Data Wrangling Practrice"
-          href: worksheets/data-wrangling-1.Rmd
-        - text: "WS4: Basic Plotting Practrice"
-          href: worksheets/basicPlotExercise.Rmd
+          href: worksheets/intro2RMarkdown.html
+        - text: "WS3: Data Wrangling Practice"
+          href: worksheets/data-wrangling-1.html
+        - text: "WS4: Basic Plotting Practice"
+          href: worksheets/basicPlotExercise.html
+        - text: "WS5: Visualizing Amounts"
+          href: worksheets/visualizing-amounts.html
+        - text: "WS6: Coordinate Systems and Axes"
+          href: worksheets/coordinate-systems-axes.html
+        - text: "WS7: Visualizing Distributions 1"
+          href: worksheets/visualizing-distributions-1.html
+        - text: "WS8: Visualizing Distributions 2"
+          href: worksheets/visualizing-distributions-2.html
+          
+          
 
 
 output: distill::distill_article
