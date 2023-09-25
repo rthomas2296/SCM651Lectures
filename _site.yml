@@ -33,6 +33,8 @@ navbar:
           href: slides/visualizingDistributions1.html
         - text: "Lesson 7B: Visualizing Distributions 2"
           href: slides/visualizingDistributions2.html
+        - text: "Lesson 8: Visualizing Proportions"
+          href: slides/visualizing-proportions.html
 
 
     - text: "Worksheets"
