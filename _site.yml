@@ -55,6 +55,8 @@ navbar:
           href: worksheets/visualizing-distributions-1.html
         - text: "WS8: Visualizing Distributions 2"
           href: worksheets/visualizing-distributions-2.html
+        - text: "WS9: Visualizing Proportions"
+          href: worksheets/visualizing-proportions.Rmd
           
           
 
