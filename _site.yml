@@ -35,6 +35,9 @@ navbar:
           href: slides/visualizingDistributions2.html
         - text: "Lesson 8: Visualizing Proportions"
           href: slides/visualizing-proportions.html
+        - text: "Lesson 9: Visualizing Trends"
+          href: slides/visualizing-trends.html
+
 
 
     - text: "Worksheets"
@@ -57,6 +60,8 @@ navbar:
           href: worksheets/visualizing-distributions-2.html
         - text: "WS9: Visualizing Proportions"
           href: worksheets/visualizing-proportions.Rmd
+        - text: "WS10: Visualizing Trends"
+          href: worksheets/visualizing-trends.Rmd
           
           
 
