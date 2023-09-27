@@ -32,6 +32,54 @@ hpi_trends <- read_csv(here("datasets", "hpi_trends.csv"))
 cars93 <- read_csv(here("datasets", "cars93.csv"))
 ```
 
+---
+## Visualizing Trends
+#### By drawing a trend on top of data points in the form of a straight or curved line, we create a visualization which helps the reader immediately see the key features of the data.
+#### Two approaches:
+#### a. smooth the data by say, moving average
+#### b. fit a curve, with a defined functional form, and then draw the curve
+
+---
+## Smoothing
+.center[
+<img src = "visualizing-trends_files/DowJones2009.png"></img>
+
+]
+
+---
+## Smoothing with Moving Averages
+#### The moving averages are plotted at the end of the moving time windows
+.center[
+<img src = "visualizing-trends_files/DowJones2009WithMovAvg.png"></img>
+
+]
+
+---
+## Smoothing with Moving Averages
+#### The moving averages are plotted in the center of the moving time windows
+.center[
+<img src = "visualizing-trends_files/DowJones2009WithMovAvgMidWindow.png"></img>
+
+]
+
+---
+
+## Smoothing with LOESS
+#### Locally Estimated Scatterplot Smoothing
+.center[
+<img src = "visualizing-trends_files/DowJones2009WithLOESS.png"></img>
+
+]
+
+---
+## Smoothing with LOESS
+#### Not limited to just time series; Used with datasets smaller than 1000 
+.center[
+<img src = "visualizing-trends_files/FuelTankAndPrice.png", width = 70%></img>
+
+]
+
+---
 ## We visualize linear trends with regression lines
 
 .center[
