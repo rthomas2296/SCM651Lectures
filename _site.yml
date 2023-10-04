@@ -43,7 +43,7 @@ navbar:
           href: slides/figure-design.html
         - text: "Lesson 11A: Interactive Plots"
           href: slides/interactive-plots.html
-        - text: "Lesson 11B: Figure Design"
+        - text: "Lesson 11B: Animations"
           href: slides/animations.html
 
 
