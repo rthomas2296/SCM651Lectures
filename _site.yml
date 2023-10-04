@@ -41,6 +41,10 @@ navbar:
           href: slides/getting-things-in-order.html
         - text: "Lesson 10B: Figure Design"
           href: slides/figure-design.html
+        - text: "Lesson 11A: Interactive Plots"
+          href: slides/interactive-plots.html
+        - text: "Lesson 11B: Figure Design"
+          href: slides/animations.html
 
 
 
