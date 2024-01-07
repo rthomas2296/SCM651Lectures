@@ -19,22 +19,6 @@ options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(comment = "")
 ```
 
-## Agenda
-
---
-
-- ####Introduction
-- ####Typical Lecture
-- ####Syllabus
-- ####Attendance
-- ####Analytics in the News
-- ####Intro to Visual Analytics
-- ####R Markdown
-- ####OYOTs (On Your Own Tasks)
-
-
----
-
 
 ## Introduction
 
@@ -43,7 +27,6 @@ knitr::opts_chunk$set(comment = "")
 ### What is Visual Analytics
 
 --
-<br>
 
 
 .center[
@@ -54,14 +37,59 @@ knitr::opts_chunk$set(comment = "")
 https://www.researchgate.net/figure/Visual-analytics-as-the-interplay-between-data-analysis-visualization-and-human_fig2_333884128
 ]
 
-
 ---
-<br><br><br><br>
+## An internal dataset of R: anscombe
+```{r include=TRUE, echo=FALSE}
+knitr::kable(anscombe)
+```
+---
+.xtiny-font[
+```{r include=TRUE, echo=TRUE, out.width='400px'}
+library(ggplot2)
+ggplot(data = anscombe, aes(x=x1,y=y1)) +
+  geom_point()
+```
+]
+---
+.xtiny-font[
+```{r include=TRUE, echo=TRUE, out.width='400px'}
+library(ggplot2)
+ggplot(data = anscombe, aes(x=x1,y=y1)) +
+  geom_point()+geom_smooth(method = "lm")
+```
+]
+---
+.xtiny-font[
+```{r include=TRUE, echo=TRUE, out.width='400px'}
+library(ggplot2)
+ggplot(data = anscombe, aes(x=x2,y=y2)) +
+  geom_point()
+```
+]
+---
+.xtiny-font[
+```{r include=TRUE, echo=TRUE, out.width='400px'}
+library(ggplot2)
+ggplot(data = anscombe, aes(x=x2,y=y2)) +
+  geom_point()+geom_smooth(method = "lm")
+```
+]
+---
+.xtiny-font[
+```{r include=TRUE, echo=TRUE, out.width='400px'}
+library(ggplot2)
+ggplot(data = anscombe, aes(x=x2,y=y2)) +
+  geom_point()+geom_line()
+```
+]
+---
+
+
 ```{r include=TRUE, echo=FALSE}
 knitr::kable(
   mtcars[1:10, ], 
   caption = "A cars dataset"
-)
+  )
 ```
 ---
 
