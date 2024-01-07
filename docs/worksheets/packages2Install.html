@@ -11,7 +11,7 @@
 
 <meta name="author" content="Roy Thomas" />
 
-<meta name="date" content="2023-08-28" />
+<meta name="date" content="2024-01-08" />
 
 <title>Packages to Install</title>
 
@@ -352,11 +352,18 @@ display: none;
 
 <h1 class="title toc-ignore">Packages to Install</h1>
 <h4 class="author">Roy Thomas</h4>
-<h4 class="date">2023-08-28</h4>
+<h4 class="date">2024-01-08</h4>
 
 </div>
 
 
+<ul>
+<li>Do the installation in R</li>
+<li>Find out version of R that RStudio is using</li>
+<li>Go to Tools–&gt;Global Options–&gt;R Version</li>
+<li>Copy the install.packages line and launch R</li>
+<li>Run the command within R</li>
+</ul>
 <pre class="r"><code># first run this command:
 install.packages(
   c(
@@ -368,11 +375,6 @@ install.packages(
     &quot;rnaturalearth&quot;, &quot;sf&quot;, &quot;shinyjs&quot;, &quot;tidyverse&quot;, &quot;transformr&quot;, &quot;umap&quot;,
     &quot;xaringan&quot;
   )
-)
-
-# then run this command:
-install.packages(
-  &quot;rnaturalearthhires&quot;, repos = &quot;https://packages.ropensci.org&quot;, type = &quot;source&quot;
 )</code></pre>
 
 

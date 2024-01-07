@@ -25,25 +25,8 @@ theme_set(theme_gray(16))
 update_geom_defaults("point", list(size = 2))
 ```
 
-## Agenda
-
---
-
-- ####Attendance
-- ####Analytics in the News
-- ####Review of past OYOTs
-- ####Filter, select, arrange, count, mutate
-- ####The pipe symbol
-- ####OYOTs (On Your Own Tasks)
-
----
-
-##Review of past OYOTs
-
-- ####R and RStudio is up to date?
-- ####All packages installed?
-
-
+- #### The pipe symbol
+- #### Filter, select, arrange, count, mutate
 ---
 
 ## Elementary data manipulations
@@ -121,7 +104,7 @@ penguins |>
 In a long form, it would be written like this:
 .tiny-font[
 ```{r fig.dim=c(4.5,4.5)}
-ggplot(data = penguins, mapping = aes(bill_length_mm, bill_depth_mm)) +
+ggplot(data = penguins, mapping = aes(x = bill_length_mm, y = bill_depth_mm)) +
   geom_point()
 ```
 ]

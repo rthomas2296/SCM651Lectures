@@ -19,7 +19,7 @@ class: center, middle, title-slide
 ### Roy Thomas
 ]
 .date[
-### last updated: 2023-09-05
+### last updated: 2024-01-07
 ]
 
 ---
@@ -27,25 +27,8 @@ class: center, middle, title-slide
 
 
 
-## Agenda
-
---
-
-- ####Attendance
-- ####Analytics in the News
-- ####Review of past OYOTs
-- ####Filter, select, arrange, count, mutate
-- ####The pipe symbol
-- ####OYOTs (On Your Own Tasks)
-
----
-
-##Review of past OYOTs
-
-- ####R and RStudio is up to date?
-- ####All packages installed?
-
-
+- #### The pipe symbol
+- #### Filter, select, arrange, count, mutate
 ---
 
 ## Elementary data manipulations
@@ -152,7 +135,7 @@ In a long form, it would be written like this:
 .tiny-font[
 
 ```r
-ggplot(data = penguins, mapping = aes(bill_length_mm, bill_depth_mm)) +
+ggplot(data = penguins, mapping = aes(x = bill_length_mm, y = bill_depth_mm)) +
   geom_point()
 ```
 

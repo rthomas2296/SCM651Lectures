@@ -1,13 +1,18 @@
 ---
 title: "Packages to Install"
 author: "Roy Thomas"
-date: "2023-08-28"
+date: "2024-01-08"
 output: html_document
 ---
-
+- Do the installation in R
+- Find out version of R that RStudio is using
+- Go to Tools-->Global Options-->R Version
+- Copy the install.packages line and launch R
+- Run the command within R
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
 ```{r eval= FALSE}
 # first run this command:
 install.packages(
@@ -22,9 +27,5 @@ install.packages(
   )
 )
 
-# then run this command:
-install.packages(
-  "rnaturalearthhires", repos = "https://packages.ropensci.org", type = "source"
-)
 ```
 

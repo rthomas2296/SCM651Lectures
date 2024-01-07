@@ -19,153 +19,7 @@ options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(comment = "")
 ```
 
-
-## Introduction
-
---
-
-### What is Visual Analytics
-
---
-
-
-.center[
-<img src = "introduction_files/Visual-analytics-between-data-and-human.png", width = 55%, height = 55%></img>
-]
-
-.center[
-https://www.researchgate.net/figure/Visual-analytics-as-the-interplay-between-data-analysis-visualization-and-human_fig2_333884128
-]
-
 ---
-## An internal dataset of R: anscombe
-```{r include=TRUE, echo=FALSE}
-knitr::kable(anscombe)
-```
----
-.xtiny-font[
-```{r include=TRUE, echo=TRUE, out.width='400px'}
-library(ggplot2)
-ggplot(data = anscombe, aes(x=x1,y=y1)) +
-  geom_point()
-```
-]
----
-.xtiny-font[
-```{r include=TRUE, echo=TRUE, out.width='400px'}
-library(ggplot2)
-ggplot(data = anscombe, aes(x=x1,y=y1)) +
-  geom_point()+geom_smooth(method = "lm")
-```
-]
----
-.xtiny-font[
-```{r include=TRUE, echo=TRUE, out.width='400px'}
-library(ggplot2)
-ggplot(data = anscombe, aes(x=x2,y=y2)) +
-  geom_point()
-```
-]
----
-.xtiny-font[
-```{r include=TRUE, echo=TRUE, out.width='400px'}
-library(ggplot2)
-ggplot(data = anscombe, aes(x=x2,y=y2)) +
-  geom_point()+geom_smooth(method = "lm")
-```
-]
----
-.xtiny-font[
-```{r include=TRUE, echo=TRUE, out.width='400px'}
-library(ggplot2)
-ggplot(data = anscombe, aes(x=x2,y=y2)) +
-  geom_point()+geom_line()
-```
-]
----
-
-
-```{r include=TRUE, echo=FALSE}
-knitr::kable(
-  mtcars[1:10, ], 
-  caption = "A cars dataset"
-  )
-```
----
-
-
-<img src = "https://clauswilke.com/dataviz/coordinate_systems_axes_files/figure-html/worldmap-four-projections-1.png", width = 30%, style = "position:absolute; top: 12%; left: 25%; box-shadow: 3px 5px 3px 1px #00000080;"></img>
-
---
-
-<img src = "https://clauswilke.com/dataviz/nested_proportions_files/figure-html/US-states-treemap-1.png",  width = 30%, style = "position:absolute; top: 22%; left: 35%; box-shadow: 3px 5px 3px 1px #00000080;"></img>
-
-
---
-
-<img src = "https://clauswilke.com/dataviz/geospatial_data_files/figure-html/unemployment-geofacet-1.png",  width = 30%, style = "position:absolute; top: 32%; left: 45%; box-shadow: 3px 5px 3px 1px #00000080;"></img>
-
---
-
-<img src = "https://clauswilke.com/dataviz/redundant_coding_files/figure-html/temp-ridgeline-colorbar-1.png",  width = 30%, style = "position:absolute; top: 42%; left: 30%; box-shadow: 3px 5px 3px 1px #00000080;"></img>
-
---
-
-<img src = "https://clauswilke.com/dataviz/multi-panel_figures_files/figure-html/athletes-composite-good-1.png",  width = 30%, style = "position:absolute; top: 52%; left: 40%; box-shadow: 3px 5px 3px 1px #00000080;"></img>
-
----
-## A Typical Lecture
-
-- ####Agenda
-- ####Attendance
-- ####Analytics in the News
-- ####Review of past OYOTs
-- ####Main Lecture with hands on work
-- ####Wrap up with next OYOTs
-
----
-## Syllabus
-
-#### [Visual Analytics Syllabus](introduction_files/Fall2023_RT_BUA400_CourseSyllabus.pdf)
-
----
-
-## Attendance
-
-#### [Attendance Sheet](https://docs.google.com/spreadsheets/d/1vq3NUorJ9A5W2zhn6Fz-hs8SVWFfa-HKPTVluJWLBS4/edit?usp=sharing)
-
----
-
-## Course Breakdown
-
-- ####Some Theory on Visualizations
-- ####R and ggplot
-- ####Tableau
-- ####Microsoft Power BI
-
----
-
-## What is ggplot?
-
-.center[
-<img src = "introduction_files/ggplot2-website-title.png", width = 60%></img>
-]
-
---
-
-.center[
-<img src = "introduction_files/ggplot2-website-footer.png", width = 60%></img>
-]
-
-[//]: # "segment ends here"
-
----
-class: middle, center
-
-## Analytics in the News
-
----
-
 ## Do you have?
 
 - ####<img src = "introduction_files/R_logo.png", width = 5%></img>
@@ -176,26 +30,27 @@ class: middle, center
 - ####Download RStudio from here: [https://posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/)
 
 ---
-
+## 
+```{r include=TRUE, echo=FALSE}
+##for the kable function to print a caption, I need to put even an empty
+##header at the top of the slide!
+knitr::kable(
+  mtcars[1:10, ], 
+  caption = "mtcars dataset"
+  )
+```
+---
 ## Steps to test...
 
 Open a new empty Rmd file  
 Create a "code chunk" by typing in Ctrl+Alt+i   or Cmd+Opt+i  
 Inside the code chunk, type in str(mtcars)  
 Execute the code chunk with Ctrl+Shift+Enter   or Cmd+Shift+Enter
-
+.xtiny-font[
 ```{R include=TRUE, echo=FALSE}
 str(mtcars)
 ```
-
----
-####Plot of mpg against disp
-```{R include=TRUE, echo=FALSE}
-plot(mtcars$disp,mtcars$mpg)
-```
-
----
-
+]
 ---
 class: middle
 
@@ -293,11 +148,124 @@ class: middle
 ]
 
 ---
-class: middle, center
 
-## Markdown
+
+## Introduction
+
+--
+
+### What is Visual Analytics
+
+--
+
+
+.center[
+<img src = "introduction_files/Visual-analytics-between-data-and-human.png", width = 55%, height = 55%></img>
+]
+
+.center[
+https://www.researchgate.net/figure/Visual-analytics-as-the-interplay-between-data-analysis-visualization-and-human_fig2_333884128
+]
 
 ---
+## An internal dataset of R: anscombe
+.xtiny-font[
+```{r include=TRUE, echo=FALSE}
+knitr::kable(anscombe)
+```
+]
+---
+.xtiny-font[
+```{r include=TRUE, echo=TRUE, out.width='400px'}
+library(ggplot2)
+ggplot(data = anscombe, aes(x=x1,y=y1)) +
+  geom_point()
+```
+]
+---
+.xtiny-font[
+```{r include=TRUE, echo=TRUE, out.width='400px'}
+library(ggplot2)
+ggplot(data = anscombe, aes(x=x1,y=y1)) +
+  geom_point()+geom_smooth(method = "lm")
+```
+]
+---
+.xtiny-font[
+```{r include=TRUE, echo=TRUE, out.width='400px'}
+library(ggplot2)
+ggplot(data = anscombe, aes(x=x2,y=y2)) +
+  geom_point()
+```
+]
+---
+.xtiny-font[
+```{r include=TRUE, echo=TRUE, out.width='400px'}
+library(ggplot2)
+ggplot(data = anscombe, aes(x=x2,y=y2)) +
+  geom_point()+geom_smooth(method = "lm")
+```
+]
+---
+.xtiny-font[
+```{r include=TRUE, echo=TRUE, out.width='400px'}
+library(ggplot2)
+ggplot(data = anscombe, aes(x=x2,y=y2)) +
+  geom_point()+geom_line()
+```
+]
+---
+## The mtcars dataset
+```{r include=TRUE, echo=FALSE}
+knitr::kable(mtcars[1:8, ])
+```
+---
+
+
+<img src = "https://clauswilke.com/dataviz/coordinate_systems_axes_files/figure-html/worldmap-four-projections-1.png", width = 30%, style = "position:absolute; top: 12%; left: 25%; box-shadow: 3px 5px 3px 1px #00000080;"></img>
+
+--
+
+<img src = "https://clauswilke.com/dataviz/nested_proportions_files/figure-html/US-states-treemap-1.png",  width = 30%, style = "position:absolute; top: 22%; left: 35%; box-shadow: 3px 5px 3px 1px #00000080;"></img>
+
+
+--
+
+<img src = "https://clauswilke.com/dataviz/geospatial_data_files/figure-html/unemployment-geofacet-1.png",  width = 30%, style = "position:absolute; top: 32%; left: 45%; box-shadow: 3px 5px 3px 1px #00000080;"></img>
+
+--
+
+<img src = "https://clauswilke.com/dataviz/redundant_coding_files/figure-html/temp-ridgeline-colorbar-1.png",  width = 30%, style = "position:absolute; top: 42%; left: 30%; box-shadow: 3px 5px 3px 1px #00000080;"></img>
+
+--
+
+<img src = "https://clauswilke.com/dataviz/multi-panel_figures_files/figure-html/athletes-composite-good-1.png",  width = 30%, style = "position:absolute; top: 52%; left: 40%; box-shadow: 3px 5px 3px 1px #00000080;"></img>
+
+---
+
+## What is ggplot?
+
+.center[
+<img src = "introduction_files/ggplot2-website-title.png", width = 60%></img>
+]
+
+--
+
+.center[
+<img src = "introduction_files/ggplot2-website-footer.png", width = 60%></img>
+]
+
+[//]: # "segment ends here"
+
+---
+
+####Plot of mpg against disp - using the base function "plot" in R
+```{R include=TRUE, echo=TRUE}
+plot(mtcars$disp,mtcars$mpg)
+```
+
+---
+class: middle, center
 
 ## Markdown
 
