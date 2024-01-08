@@ -32,6 +32,7 @@ update_geom_defaults("point", list(size = 2.0)) # 2 for full width, 2.5 for half
 
 preprints <- read_csv(here("datasets", "preprints.csv"))
 
+
 ```
 
 

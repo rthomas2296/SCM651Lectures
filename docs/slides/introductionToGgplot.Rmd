@@ -119,7 +119,7 @@ ggplot(boxoffice, aes(x = fct_reorder(title, desc(rank)), y = amount)) +
 
 ---
 
-## Avoid rotated axis labels
+#### Avoid rotated axis labels (unless if absolutely necessary)
 
 .center[
 ```{r boxoffice-rot-axis-tick-labels, echo = FALSE, fig.width = 6, fig.asp = .85, dev = "svg"}

@@ -19,7 +19,7 @@ class: center, middle, title-slide
 ### Roy Thomas
 ]
 .date[
-### last updated: 2023-09-18
+### last updated: 2024-01-07
 ]
 
 ---
@@ -103,7 +103,7 @@ Data source: Box Office Mojo
 
 ---
 
-## Avoid rotated axis labels
+#### Avoid rotated axis labels (unless if absolutely necessary)
 
 .center[
 ![](introductionToGgplot_files/figure-html/boxoffice-rot-axis-tick-labels-1.svg)&lt;!-- --&gt;
@@ -155,6 +155,11 @@ Data source: Box Office Mojo
 ## Dots are preferable if we want to truncate the axes
 
 .center.move-up-1em[
+
+```
+Warning: package 'gapminder' was built under R version 4.3.2
+```
+
 ![](introductionToGgplot_files/figure-html/Americas-life-expect-1.svg)&lt;!-- --&gt;
 ]
 
@@ -366,6 +371,13 @@ background-size: 8%
 
 ```r
 library(palmerpenguins)
+```
+
+```
+Warning: package 'palmerpenguins' was built under R version 4.3.2
+```
+
+```r
 head(penguins)
 ```
 
