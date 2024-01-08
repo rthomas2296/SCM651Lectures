@@ -19,7 +19,7 @@ class: center, middle, title-slide
 ### Roy Thomas
 ]
 .date[
-### last updated: 2023-09-06
+### last updated: 2024-01-08
 ]
 
 ---
@@ -27,47 +27,12 @@ class: center, middle, title-slide
 
 
 
-## Agenda
-
---
-
-- ####Attendance
-- ####Analytics in the News
-- ####Review of past OYOTs (data manipulation verbs)
-- ####Data Exploration: Missing Values
-- ####Data Exploration: Outliers
-- ####OYOTs (On Your Own Tasks)
-
----
-
-##Attendance
-
----
-
-##Analytics in the News
-
----
-
-##Review of past OYOTs
-
-- ####Review of filter, select, arrange, count, mutate
-- ####Review of relocate, slice
-
----
 
 ## Data Manipulation on the StarWars dataset
 .tiny-font[
 
 ```r
 library(tidyverse)  # This library has a LOT OF functions that we use
-?starwars
-```
-
-```
-starting httpd help server ... done
-```
-
-```r
 starwars
 ```
 
@@ -133,10 +98,8 @@ starwars |&gt;
 ---
 
 #### slice_min() and slice_max() select rows with highest or 
-#### lowest values of a variable. Note that we first must choose 
-#### only the values which are not NA.
+#### lowest values of a variable. 
 #### starwars |&gt; 
-####   filter(!is.na(height)) |&gt; 
 ####   slice_max(height, n = 3)
 ---
 
@@ -152,7 +115,7 @@ starwars |&gt;
 ##### starwars|&gt; rename(home_world = homeworld)
 ##### starwars |&gt; mutate(height_m = height / 100)
 ##### starwars |&gt; 
-#####   mutate(height_m = height / 100) %&gt;%
+#####   mutate(height_m = height / 100) |&gt; 
 #####   select(height_m, height, everything())
 ##### starwars |&gt; 
 #####   mutate(
@@ -175,7 +138,7 @@ starwars |&gt;
 #####   relocate(sex:homeworld, .before = height)
 ###Summarize
 ##### starwars|&gt; 
-#####   summarise(height = mean(height, na.rm = TRUE))
+#####   summarise(avgHeight = mean(height, na.rm = TRUE))
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "Coordinate systems and axes"
+title: "Coordinate Systems and Axes"
 author: "Roy Thomas"
 date: "last updated: `r Sys.Date()`"
 output:
