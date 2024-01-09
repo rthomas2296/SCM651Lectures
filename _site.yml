@@ -29,12 +29,10 @@ navbar:
           href: slides/coordinateSystemsAxes.html
         - text: "Lesson 6: Basic Plot Types"
           href: slides/basicPlotTypes.html
-        - text: "Lesson 7A: Visualizing Distributions 1"
+        - text: "Lesson 7: Visualizing Distributions 1"
           href: slides/visualizingDistributions1.html
-        - text: "Lesson 7B: Visualizing Distributions 2"
+        - text: "Lesson 8: Visualizing Distributions 2"
           href: slides/visualizingDistributions2.html
-        - text: "Lesson 8: Visualizing Proportions"
-          href: slides/visualizing-proportions.html
         - text: "Lesson 9: Visualizing Trends"
           href: slides/visualizing-trends.html
         - text: "Lesson 10A: Getting things into the right order"
@@ -66,9 +64,7 @@ navbar:
           href: worksheets/visualizing-distributions-1.html
         - text: "WS8: Visualizing Distributions 2"
           href: worksheets/visualizing-distributions-2.html
-        - text: "WS9: Visualizing Proportions"
-          href: worksheets/visualizing-proportions.Rmd
-        - text: "WS10: Visualizing Trends"
+        - text: "WS9: Visualizing Trends"
           href: worksheets/visualizing-trends.Rmd
           
           

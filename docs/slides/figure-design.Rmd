@@ -319,7 +319,7 @@ ggplot(lincoln_temps) +
     color = "white"
   ) +
   scale_x_continuous(
-    name = "mean temperature (°F)",
+    name = "Mean Temperature (°F)",
     expand = c(0, 0)
   ) +
   scale_y_discrete(

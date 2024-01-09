@@ -46,10 +46,10 @@ US_census <- read_csv(here("datasets", "US_census.csv"))
 texas_income <- readRDS(url("https://wilkelab.org/SDS375/datasets/Texas_income.rds")) %>%
   select(-county)
 
-tx_census <- US_census %>% 
-  filter(state == "Texas") %>%
-  select(FIPS, name, pop2010, area) %>%
-  extract(name, "county", regex = "(.+) County") %>%
+tx_census <- US_census |> 
+  filter(state == "Texas") |> 
+  select(FIPS, name, pop2010, area) |> 
+  extract(name, "county", regex = "(.+) County") |> 
   mutate(
     FIPS = as.character(FIPS),
     popratio = pop2010/median(pop2010),

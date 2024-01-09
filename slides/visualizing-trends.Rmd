@@ -104,7 +104,7 @@ blue_jays %>%
     limits = c("blue jay birds"),
     name = NULL
   ) +
-  scale_x_continuous(name = "body mass (g)", limits = c(58.7, 81.6)) +
+  scale_x_continuous(name = "body mass (grms)", limits = c(58.7, 81.6)) +
   scale_y_continuous(name = "head length (mm)", limits = c(51.5, 60.8)) +
   theme_minimal_grid() +
   theme(

@@ -19,7 +19,7 @@ class: center, middle, title-slide
 ### Roy Thomas
 ]
 .date[
-### last updated: 2023-10-02
+### last updated: 2024-01-09
 ]
 
 ---
@@ -560,7 +560,13 @@ class: middle, center
 
 ```r
 library(gapminder)
+```
 
+```
+Warning: package 'gapminder' was built under R version 4.3.2
+```
+
+```r
 gapminder
 ```
 
@@ -876,7 +882,13 @@ Dataset: Flights out of New York City in 2013
 
 ```r
 library(nycflights13)
+```
 
+```
+Warning: package 'nycflights13' was built under R version 4.3.2
+```
+
+```r
 flight_data &lt;- flights |&gt; # take data on individual flights
   left_join(airlines) |&gt;  # add in full-length airline names
   select(name, carrier, flight, year, month, day, origin, dest) # pick columns of interest
@@ -1115,7 +1127,7 @@ One annoying issue: The legend is in the wrong order
 .pull-left.tiny-font[
 
 ```r
-flight_data |&gt;
+flight_data %&gt;%
   mutate(
     name = fct_lump_n(fct_infreq(name), 7),
     # Use `fct_other()` to manually lump all

@@ -258,7 +258,7 @@ gdp_ranked %>%
 
 .tiny-font[
 ```{r eval = FALSE}
-gdp_ranked %>%
+gdp_ranked |> 
   # gganimate uses the `group` aesthetic to track objects across frames
   ggplot(aes(gdp, rank, group = country)) + 
   geom_col(aes(fill = country)) +

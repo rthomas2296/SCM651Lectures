@@ -38,7 +38,7 @@ Mean temperatures in Lincoln, NE, in January 2016:
 
 .center[
 ```{r temps_table, echo = FALSE}
-lincoln_temps %>%
+lincoln_temps |> 
   filter(month == "Jan") %>%
   select(date, `mean temp` = mean_temp) %>%
   knitr::kable()

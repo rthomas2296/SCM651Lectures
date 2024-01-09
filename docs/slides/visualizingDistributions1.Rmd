@@ -227,7 +227,8 @@ Figures redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reil
 ###### There are many kernels for doing density estimates. The ones shown here are Gaussian and Rectangular
 - ggplot(titanic, aes(x = age)) + geom_density(fill = "skyblue", bw = .5, kernel = "gaussian")
 - ggplot(titanic, aes(x = age)) + geom_density(fill = "skyblue", bw = 2.0, kernel = "gaussian")
-- ggplot(titanic, aes(x = age)) + geom_density(fill = "skyblue", bw = 1, kernel = "rectangular")
+- ggplot(titanic, aes(x = age)) + geom_density(fill = "skyblue", bw = 5, kernel = "gaussian")
+- ggplot(titanic, aes(x = age)) + geom_density(fill = "skyblue", bw = 2, kernel = "rectangular")
 
 ---
 
@@ -336,7 +337,7 @@ ggplot(gender_counts, aes(x = age, y = count, fill = gender)) +
     legend.box.background = element_rect(fill = "white", color = "white")
   )
 ```
-Is the female bar over the male bar?
+Is the female bar over the male bar?  (In this case, yes.  This is a "stacked" column.)
 ]
 
 --
