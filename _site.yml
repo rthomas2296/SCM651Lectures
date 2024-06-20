@@ -17,8 +17,8 @@ navbar:
           href: slides/SCM651Intro.html
         - text: "Lesson 2: Data Wrangling"
           href: slides/dataWrangling.html
-        - text: "Lesson 3: Data Wrangling Review"
-          href: slides/dataWrangling2.html
+        - text: "Lesson 3: MORE Data Wrangling"
+          href: slides/SCM651dataWrangling2.html
         - text: "Lesson 4A: Telling A Story"
           href: slides/SCM651tellingAStory.html
         - text: "Lesson 4B: Visual Design Principles"
