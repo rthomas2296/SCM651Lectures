@@ -1,0 +1,22 @@
+---
+title: "VisualizingAmountsTest"
+author: "Roy Thomas"
+date: "2024-01-09"
+output: html_document
+---
+```{r setup, include=FALSE}
+library(learnr)
+library(tidyverse)
+library(palmerpenguins)
+knitr::opts_chunk$set(echo = FALSE, comment = "")
+
+# data prep
+# Data from Box Office Mojo for Dec. 22-24, 2017. 
+boxoffice <- tibble(
+  rank = 1:5,
+  title = c("Star Wars", "Jumanji", "Pitch Perfect 3", "Greatest Showman", "Ferdinand"),
+  amount = c(71.57, 36.17, 19.93, 8.81, 7.32) # million USD
+)
+
+penguins_nomissing <- na.omit(penguins) # remove all rows with any missing values
+```

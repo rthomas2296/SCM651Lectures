@@ -1,0 +1,39 @@
+---
+title: "CoordinateSystemsAxesTest"
+author: "Roy Thomas"
+date: "2024-01-09"
+output: html_document
+---
+```{r setup, include=FALSE}
+library(learnr)
+library(tidyverse)
+
+knitr::opts_chunk$set(echo = FALSE, comment = "")
+
+# data prep
+boxoffice <- tibble(
+  rank = 1:5,
+  title = c("Star Wars", "Jumanji", "Pitch Perfect 3", "Greatest Showman", "Ferdinand"),
+  amount = c(71.57, 36.17, 19.93, 8.81, 7.32) # million USD
+)
+
+temperatures <- read_csv("https://wilkelab.org/SDS375/datasets/tempnormals.csv") %>%
+  mutate(
+    location = factor(
+      location, levels = c("Death Valley", "Houston", "San Diego", "Chicago")
+    )
+  ) %>%
+  select(location, day_of_year, month, temperature)
+
+temps_wide <- temperatures %>%
+  pivot_wider(names_from = location, values_from = temperature)
+
+US_census <- read_csv("https://wilkelab.org/SDS375/datasets/US_census.csv")
+tx_counties <- US_census %>% 
+  filter(state == "Texas") %>%
+  select(name, pop2010) %>%
+  extract(name, "county", regex = "(.+) County") %>%
+  mutate(popratio = pop2010/median(pop2010)) %>%
+  arrange(desc(popratio)) %>%
+  mutate(index = 1:n())
+```
