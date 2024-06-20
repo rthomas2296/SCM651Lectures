@@ -1,7 +1,7 @@
-name: "BUA400"
-title: "BUA 400"
+name: "SCM651"
+title: "SCM 651"
 description: |
-  BUA 400 - Visual Analytics
+  SCM 651 - R and Visual Analytics
 output_dir: "docs"
 theme: "theme.css"
 repository_url: https://github.com/rthomas2296/BUA400Fall2023
@@ -14,7 +14,7 @@ navbar:
     - text: "Slides"
       menu:
         - text: "Lesson 1: Visual Analytics Intro"
-          href: slides/introduction.html
+          href: slides/SCM651Intro.html
         - text: "Lesson 2: Data Wrangling"
           href: slides/dataWrangling.html
         - text: "Lesson 3: Data Wrangling Review"
