@@ -13,7 +13,7 @@ output:
       slideNumberFormat: ''
       titleSlideClass: [center, middle]
 ---
-
+ 
 ```{r setup, include=FALSE, echo=FALSE}
 options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(comment = "")

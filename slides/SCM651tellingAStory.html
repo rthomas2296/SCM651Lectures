@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Data Wrangling2</title>
+    <title>Telling a story</title>
     <meta charset="utf-8" />
     <meta name="author" content="Roy Thomas" />
     <script src="libs/header-attrs/header-attrs.js"></script>
@@ -13,7 +13,7 @@
 class: center, middle, title-slide
 
 .title[
-# Data Wrangling2
+# Telling a story
 ]
 .author[
 ### Roy Thomas
@@ -28,158 +28,231 @@ class: center, middle, title-slide
 
 
 
-## Data Manipulation on the StarWars dataset
-.tiny-font[
 
-```r
-library(tidyverse)  # This library has a LOT OF functions that we use
-starwars
-```
+---
 
-```
-# A tibble: 87 × 14
-   name     height  mass hair_color skin_color eye_color birth_year sex   gender
-   &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
- 1 Luke Sk…    172    77 blond      fair       blue            19   male  mascu…
- 2 C-3PO       167    75 &lt;NA&gt;       gold       yellow         112   none  mascu…
- 3 R2-D2        96    32 &lt;NA&gt;       white, bl… red             33   none  mascu…
- 4 Darth V…    202   136 none       white      yellow          41.9 male  mascu…
- 5 Leia Or…    150    49 brown      light      brown           19   fema… femin…
- 6 Owen La…    178   120 brown, gr… light      blue            52   male  mascu…
- 7 Beru Wh…    165    75 brown      light      blue            47   fema… femin…
- 8 R5-D4        97    32 &lt;NA&gt;       white, red red             NA   none  mascu…
- 9 Biggs D…    183    84 black      light      brown           24   male  mascu…
-10 Obi-Wan…    182    77 auburn, w… fair       blue-gray       57   male  mascu…
-# ℹ 77 more rows
-# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
-#   vehicles &lt;list&gt;, starships &lt;list&gt;
-```
+## What is a story?
 
-```r
-View(starwars)
-```
+--
+
+A story is a collection of observations, facts, or events presented in a specific order such that they create an .highlight[emotional reaction]
+
+---
+
+## Every story has an arc
+
+--
+
+.center[
+Opening
+]
+
+--
+
+.center[
+&lt;img src = "tellingAStory_files/arrow.svg", width = 3%, style = "margin-top: -0.5em; margin-bottom: -1em"&gt;&lt;/img&gt;
+
+Challenge
+]
+
+--
+
+.center[
+&lt;img src = "tellingAStory_files/arrow.svg", width = 3%, style = "margin-top: -0.5em; margin-bottom: -1em"&gt;&lt;/img&gt;
+
+Action
+]
+
+--
+
+.center[
+&lt;img src = "tellingAStory_files/arrow.svg", width = 3%, style = "margin-top: -0.5em; margin-bottom: -1em"&gt;&lt;/img&gt;
+
+Resolution
 ]
 
 ---
 
-## Filter
-.tiny-font[
+## Every story has an arc
 
-```r
-starwars |&gt; 
-  filter(skin_color == "light", eye_color == "brown")
-```
+.center[
+Opening
+]
 
-```
-# A tibble: 7 × 14
-  name      height  mass hair_color skin_color eye_color birth_year sex   gender
-  &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-1 Leia Org…    150    49 brown      light      brown             19 fema… femin…
-2 Biggs Da…    183    84 black      light      brown             24 male  mascu…
-3 Cordé        157    NA brown      light      brown             NA fema… femin…
-4 Dormé        165    NA brown      light      brown             NA fema… femin…
-5 Raymus A…    188    79 brown      light      brown             NA male  mascu…
-6 Poe Dame…     NA    NA brown      light      brown             NA male  mascu…
-7 Padmé Am…    165    45 brown      light      brown             46 fema… femin…
-# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
-#   vehicles &lt;list&gt;, starships &lt;list&gt;
-```
+.center[
+&lt;img src = "tellingAStory_files/arrow.svg", width = 3%, style = "margin-top: -0.5em; margin-bottom: -1em"&gt;&lt;/img&gt;
+
+.highlight[Challenge]
+]
+
+.center[
+&lt;img src = "tellingAStory_files/arrow.svg", width = 3%, style = "margin-top: -0.5em; margin-bottom: -1em"&gt;&lt;/img&gt;
+
+Action
+]
+
+.center[
+&lt;img src = "tellingAStory_files/arrow.svg", width = 3%, style = "margin-top: -0.5em; margin-bottom: -1em"&gt;&lt;/img&gt;
+
+.highlight[Resolution]
+]
+
+.absolute-bottom-right[
+Challenge and resolution are&lt;br&gt;the two most important parts
 ]
 
 ---
+class: center middle
 
-#### starwars |&gt; arrange(height, mass)
-#### starwars |&gt; arrange(desc(height))
-#### starwars |&gt; slice(5:10)
-#### slice_head() and slice_tail()
-#### slice_head(n=3)
-#### slice_sample(n=5)
+## Telling a story with figures
 
 ---
 
-#### slice_min() and slice_max() select rows with highest or 
-#### lowest values of a variable. 
-#### starwars |&gt; 
-####   slice_max(height, n = 3)
----
+## Example: Preprints in biology
 
-#### select allows you to zoom in to the columns of interest
-#### starwars |&gt; select(hair_color, skin_color, eye_color)
-#### starwars |&gt; select(hair_color:eye_color)
-#### starwars |&gt; select(!(hair_color:eye_color))
-#### starwars |&gt; select(ends_with("color"))
+.center[
+![](SCM651tellingAStory_files/figure-html/preprints-part1-1.svg)&lt;!-- --&gt;
+]
 
----
+.absolute-bottom-right[
+Opening
+]
 
-##### rename and mutate
-##### starwars|&gt; rename(home_world = homeworld)
-##### starwars |&gt; mutate(height_m = height / 100)
-##### starwars |&gt; 
-#####   mutate(height_m = height / 100) |&gt; 
-#####   select(height_m, height, everything())
-##### starwars |&gt; 
-#####   mutate(
-#####     height_m = height / 100,
-#####     BMI = mass / (height_m^2)
-#####   ) |&gt; 
-#####   select(BMI, everything())
-##### If you only want to keep the new variables, use .keep = "none"
-##### starwars |&gt; 
-#####   mutate(
-#####     height_m = height / 100,
-#####     BMI = mass / (height_m^2),
-#####     .keep = "none"
-#####   )
+
+???
+
+Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reilly, 2019.](https://clauswilke.com/dataviz)
+
 
 ---
 
-##### Change column order with relocate
-##### starwars|&gt; 
-#####   relocate(sex:homeworld, .before = height)
-###Summarize
-##### starwars|&gt; 
-#####   summarise(avgHeight = mean(height, na.rm = TRUE))
+
+## Example: Preprints in biology
+
+.center[
+![](SCM651tellingAStory_files/figure-html/preprints-part1-1.svg)
+]
+
+
+&lt;div style = "position: absolute; top: 50%; left: 57%; width: 3.8in; background: white;"&gt;
+What happened in 2014 to curtail the growth?
+&lt;/div&gt;
+
+.absolute-bottom-right[
+Challenge
+]
+
+
+???
+
+Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reilly, 2019.](https://clauswilke.com/dataviz)
 
 ---
 
-## Dealing with Missing Values
-To identify missing values use is.na() which returns a logical vector with TRUE in the element locations that contain missing values represented by NA. is.na() will work on vectors, lists, matrices, and data frames.
+## Example: Preprints in biology
 
-##### vector with missing data
-##### x &lt;- c(1:4, NA, 6:7, NA)
-##### x
+.center[
+![](SCM651tellingAStory_files/figure-html/preprints-part2-1.svg)&lt;!-- --&gt;
+]
 
-##### is.na(x)
+.absolute-bottom-right[
+Resolution
+]
 
----
-## data frame with missing data
-##### df &lt;- data.frame(col1 = c(1:3, NA),
-#####                  col2 = c("this", NA,"is", "text"), 
-#####                  col3 = c(TRUE, FALSE, TRUE, TRUE), 
-#####                  col4 = c(2.5, 4.2, 3.2, NA),
-#####                  stringsAsFactors = FALSE)
+&lt;div style = "position: absolute; top: 65%; left: 60%; width: 3.8in; background: white;"&gt;
+bioRxiv opened in 2014
+&lt;/div&gt;
 
-##### identify NAs in full data frame
-##### is.na(df)
+???
 
-##### identify NAs in specific data frame column
-##### is.na(df$col4)
----
-To identify the location or the number of NAs we can leverage the which() and sum() functions:
-##### identify location of NAs in vector
-##### which(is.na(x))
-
-##### identify count of NAs in data frame
-##### sum(is.na(df))
-## compute the total missing values in each column is to use colSums():
-##### colSums(is.na(df))
----
-
-## OYOTs (On Your Own Tasks)
-#### https://thomasadventure.blog/posts/r-count-na/ (also shows heatmap of na’s)
-#### Outliers: https://statsandr.com/blog/outliers-detection-in-r/
+Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reilly, 2019.](https://clauswilke.com/dataviz)
 
 ---
+
+## Keep in mind
+
+--
+
+- Every figure needs a clear purpose within the story arc
+
+--
+
+- A complete arc will usually require at least two figures
+
+---
+
+## Prepare figures that make a clear point
+
+--
+
+.center[
+
+```
+Warning: package 'nycflights13' was built under R version 4.3.2
+```
+
+![](SCM651tellingAStory_files/figure-html/arrival-delay-vs-distance-1.svg)&lt;!-- --&gt;
+]
+
+???
+
+Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reilly, 2019.](https://clauswilke.com/dataviz)
+
+---
+
+## Prepare figures that make a clear point
+
+.center[
+![](SCM651tellingAStory_files/figure-html/mean-arrival-delay-nyc-1.svg)&lt;!-- --&gt;
+]
+
+&lt;div style = "position: absolute; top: 24%; left: 45%; background: white;"&gt;
+American and Delta&lt;br&gt;have the shortest delays
+&lt;/div&gt;
+
+???
+
+Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reilly, 2019.](https://clauswilke.com/dataviz)
+
+---
+
+## Make your figures memorable
+
+
+
+---
+
+background-image: url("https://clauswilke.com/dataviz/telling_a_story_files/figure-html/petownership-bar-1.png")
+background-position: left 50% top 60%
+background-size: 65%
+
+## Make your figures memorable
+
+???
+
+Figure from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reilly, 2019.](https://clauswilke.com/dataviz)
+
+
+---
+
+background-image: url("https://clauswilke.com/dataviz/telling_a_story_files/figure-html/petownership-isotype-1.png")
+background-position: left 50% top 60%
+background-size: 65%
+
+## Make your figures memorable
+
+???
+
+Figure from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reilly, 2019.](https://clauswilke.com/dataviz)
+
+
+[//]: # "segment ends here"
+
+---
+
+## Further reading
+
+- Fundamentals of Data Visualization: [Chapter 29: Telling a story and making a point](https://clauswilke.com/dataviz/telling-a-story.html)
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

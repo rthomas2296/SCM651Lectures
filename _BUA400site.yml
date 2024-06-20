@@ -23,14 +23,26 @@ navbar:
           href: slides/SCM651tellingAStory.html
         - text: "Lesson 4B: Visual Design Principles"
           href: slides/SCM651visualDesignPrinciples.html
-        - text: "Lesson 5: Introduction To Ggplot"
+        - text: "Lesson 5A: Introduction To Ggplot"
           href: slides/introductionToGgplot.html
+        - text: "Lesson 5B: Coordinate Systems and Axes"
+          href: slides/coordinateSystemsAxes.html
         - text: "Lesson 6: Basic Plot Types"
           href: slides/basicPlotTypes.html
-        - text: "Lesson 7: Visualizing Distributions"
+        - text: "Lesson 7: Visualizing Distributions 1"
           href: slides/visualizingDistributions1.html
-        - text: "Lesson 8: Visualizing Trends"
+        - text: "Lesson 8: Visualizing Distributions 2"
+          href: slides/visualizingDistributions2.html
+        - text: "Lesson 9: Visualizing Trends"
           href: slides/visualizing-trends.html
+        - text: "Lesson 10A: Getting things into the right order"
+          href: slides/getting-things-in-order.html
+        - text: "Lesson 10B: Figure Design"
+          href: slides/figure-design.html
+        - text: "Lesson 11A: Interactive Plots"
+          href: slides/interactive-plots.html
+        - text: "Lesson 11B: Animations"
+          href: slides/animations.html
 
 
 
