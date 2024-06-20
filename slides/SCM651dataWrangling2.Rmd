@@ -1,5 +1,5 @@
 ---
-title: "Data Wrangling2"
+title: "More Data Wrangling"
 author: "Roy Thomas"
 date: "last updated: `r Sys.Date()`"
 output:
