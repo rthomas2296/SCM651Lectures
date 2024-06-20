@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```
 
-This is the home page for SCM651 - Covering R and Visual Analytics
+This is the home page for SCM651 - Covering R & Visual Analytics
 
 Instructor: Roy Thomas
 
