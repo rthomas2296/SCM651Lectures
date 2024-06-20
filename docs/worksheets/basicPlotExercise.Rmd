@@ -1,7 +1,7 @@
 ---
 title: "Basic Plot Exercises"
 author: "Roy Thomas"
-date: "2023-09-18"
+date: "2024-06-20"
 output: html_document
 ---
 
@@ -10,8 +10,6 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ---
-
-
 1. How many rows are in penguins? How many columns?
 
 2. What does the bill_depth_mm variable in the penguins data frame describe? Read the help for ?penguins to find out.

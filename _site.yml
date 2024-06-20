@@ -36,23 +36,19 @@ navbar:
 
     - text: "Worksheets"
       menu:
-        - text: "WS1: Packages to install"
-          href: worksheets/packages2Install.html
-        - text: "WS2: Intro to R Markdown"
+        - text: "WS1: Intro to R Markdown"
           href: worksheets/intro2RMarkdown.html
-        - text: "WS3: Data Wrangling Practice"
+        - text: "WS2: Data Wrangling Practice"
           href: worksheets/data-wrangling-1.html
-        - text: "WS4: Basic Plotting Practice"
+        - text: "WS3: Basic Plotting Practice"
           href: worksheets/basicPlotExercise.html
-        - text: "WS5: Visualizing Amounts"
-          href: worksheets/visualizing-amounts.html
-        - text: "WS6: Coordinate Systems and Axes"
-          href: worksheets/coordinate-systems-axes.html
-        - text: "WS7: Visualizing Distributions 1"
-          href: worksheets/visualizing-distributions-1.html
-        - text: "WS8: Visualizing Distributions 2"
-          href: worksheets/visualizing-distributions-2.html
-        - text: "WS9: Visualizing Trends"
+        - text: "WS4: Visualizing Amounts"
+          href: worksheets/visualizing-amounts.Rmd
+        - text: "WS5: Coordinate Systems and Axes"
+          href: worksheets/coordinate-systems-axes.Rmd
+        - text: "WS6: Visualizing Distributions 1"
+          href: worksheets/visualizing-distributions-1.Rmd
+        - text: "WS7: Visualizing Trends"
           href: worksheets/visualizing-trends.Rmd
           
           
