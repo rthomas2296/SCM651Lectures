@@ -52,29 +52,25 @@ boxoffice
 Somewhat confusingly, the ggplot geom that does this is called `geom_col()`. (There is also a `geom_bar()`, but it works differently. We'll get to that later in this tutorial.) Make a bar plot of `amount` versus `title`. This means `amount` goes on the y axis and `title` on the x axis.
 
 ```{r geom-col, exercise=TRUE}
-
-
-
-
+ggplot(boxoffice, aes(x = title, y = amount)) +
+  geom_col()
 ```
 
 Now flip which column you map onto x and which onto y.
 
 ```{r geom-col2, exercise=TRUE}
-
-
-
-
+ggplot(boxoffice, aes(x = amount, y = title)) +
+  geom_col()
 ```
 
 
 The x-axis label should specify that the amount is in million USD, and the y axis doesn't need the word "title". Use `xlab()` and `ylab()` to make these changes to the plot.
 
 ```{r geom-col3, exercise=TRUE}
-
-
-
-
+ggplot(boxoffice, aes(x = amount, y = title)) +
+  geom_col() +
+  xlab("weekend gross (million USD)") +
+  ylab(NULL) # NULL means nothing, don't show a y label
 ```
 
 
@@ -86,11 +82,10 @@ Whenever we are making bar plots, we need to think about the correct order of th
 We can do this with the `fct_reorder()` function, which takes two arguments: The categorical variable we want to re-order, and the values by which we want to order. Here, the categorical variable is the column `title` and the values are in the column `amount`. We can apply the `fct_reorder()` function right inside the `aes()` statement.
 
 ```{r geom-col-sorted, exercise=TRUE}
-
-
-
-
-
+ggplot(boxoffice, aes(x = amount, y = fct_reorder(title, amount))) +
+  geom_col() +
+  xlab("weekend gross (million USD)") +
+  ylab(NULL)
 ```
 
 
@@ -102,16 +97,17 @@ Try the following additional experiments in the above code:
 
 
 ```{r geom-col-sorted, exercise=TRUE}
-
-
-
+ggplot(boxoffice, aes(x = amount, y = fct_reorder(title, amount), fill = amount)) +
+  geom_col() +
+  xlab("weekend gross (million USD)") +
+  ylab(NULL)
 ```
 
 ```{r geom-col-sorted, exercise=TRUE}
-
-
-
-
+ggplot(boxoffice, aes(x = amount, y = fct_reorder(title, amount), fill = title)) +
+  geom_col() +
+  xlab("weekend gross (million USD)") +
+  ylab(NULL)
 ```
 
 ## Drawing bars based on a count
@@ -129,10 +125,8 @@ The solution here is to use `geom_bar()`, which performs a count and then displa
 Try this out. Make a bar plot of the number of penguins per species. Map the penguin species onto the x axis.
 
 ```{r geom-bar, exercise=TRUE}
-
-
-
-
+ggplot(penguins_nomissing, aes(x = species)) +
+  geom_bar()
 ```
 
 
@@ -147,23 +141,19 @@ Try the following additional modifications in the above code:
 
 
 ```{r geom-bar, exercise=TRUE}
-
-
-
-
+ggplot(penguins_nomissing, aes(y = species)) +
+  geom_bar()
 ```
 
 ```{r geom-bar, exercise=TRUE}
-
-
-
-
+ggplot(penguins_nomissing, aes(y = species)) +
+  geom_bar() + 
+  ylab(NULL)
 ```
 ```{r geom-bar, exercise=TRUE}
-
-
-
-
+ggplot(penguins_nomissing, aes(y = fct_relevel(species, "Chinstrap", "Gentoo", "Adelie"))) +
+  geom_bar() + 
+  ylab(NULL)
 ```
 
 ## Counting subgroups
@@ -171,10 +161,8 @@ Try the following additional modifications in the above code:
 `geom_bar()` automatically counts how many cases there are in each unique combination of different categorical aesthetics. In the previous example, we had only one categorical aesthetic, `species`. But we can add a second one, for example `sex`. Then `geom_bar()` counts the number of cases in each unique combination of species and sex and draws separate bars for each. Try this out by mapping the `sex` column onto the `fill` aesthetic.
 
 ```{r geom-bar2, exercise=TRUE}
-
-
-
-
+ggplot(penguins_nomissing, aes(x = species, fill = sex)) +
+  geom_bar()
 ```
 
 
@@ -182,28 +170,22 @@ Try the following additional modifications in the above code:
 By default, the bars for different `fill` values but identical `x` values will be drawn on top of one-another. But there are other possibilities, which are controled by the `position` argument to `geom_bar()`. For example, try to set the position to `"dodge"`.
 
 ```{r geom-bar-position, exercise=TRUE}
-
-
-
-
+ggplot(penguins_nomissing, aes(x = species, fill = sex)) +
+  geom_bar(position = "dodge")
 ```
 
 In the above code, also try positions `"stack"` and `"fill"`.
 
 
 ```{r geom-bar-position, exercise=TRUE}
-
-
-
-
+ggplot(penguins_nomissing, aes(x = species, fill = sex)) +
+  geom_bar(position = "stack")
 ```
 
 
 ```{r geom-bar-position, exercise=TRUE}
-
-
-
-
+ggplot(penguins_nomissing, aes(x = species, fill = sex)) +
+  geom_bar(position = "fill")
 ```
 
 ```{r position-question}
